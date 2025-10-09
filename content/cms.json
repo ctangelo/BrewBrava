@@ -1,0 +1,635 @@
+{
+  "siteSettings": {
+    "brand": "Brew Brava",
+    "address": {
+      "line1": {
+        "en": "86 Tran Phu, Loc Tho Ward, Nha Trang",
+        "ru": "ул. Чан Фу, 86, район Лок Тхо, Нячанг",
+        "vi": "86 Trần Phú, phường Lộc Thọ, Nha Trang"
+      },
+      "line2": {
+        "en": "Khanh Hoa Province, Vietnam",
+        "ru": "провинция Кханьхоа, Вьетнам",
+        "vi": "Tỉnh Khánh Hòa, Việt Nam"
+      }
+    },
+    "phone": "+84 123 456 789",
+    "email": "hello@brewbrava.com",
+    "hours": {
+      "en": "Daily 11:00 – 23:00",
+      "ru": "Ежедневно 11:00 – 23:00",
+      "vi": "Mỗi ngày 11:00 – 23:00"
+    },
+    "coordinates": {
+      "lat": 12.240359,
+      "lng": 109.196749
+    },
+    "mapsLink": "https://maps.google.com/?q=Brew+Brava",
+    "social": {
+      "facebook": "https://www.facebook.com/brewbrava",
+      "instagram": "https://www.instagram.com/brewbrava",
+      "telegram": "https://t.me/brewbrava",
+      "zalo": "https://zalo.me/brewbrava"
+    },
+    "meta": {
+      "title": {
+        "en": "Brew Brava — Craft Beer, Nha Trang",
+        "ru": "Brew Brava — крафтовое пиво в Нячанге",
+        "vi": "Brew Brava — Bia thủ công tại Nha Trang"
+      },
+      "description": {
+        "en": "Independent seaside brewery crafting expressive lagers and ales in Nha Trang.",
+        "ru": "Независимая пивоварня у моря: варим характерные лагеры и эли в Нячанге.",
+        "vi": "Nhà máy bia độc lập bên bờ biển, ủ lager và ale đậm đà tại Nha Trang."
+      },
+      "ogImage": "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=1200&q=80"
+    }
+  },
+  "hero": {
+    "headline": {
+      "en": "Brew Brava — Craft Beer, Nha Trang",
+      "ru": "Brew Brava — Craft Beer, Nha Trang",
+      "vi": "Brew Brava — Craft Beer, Nha Trang"
+    },
+    "tagline": {
+      "en": "Craft beer brewed with soul on the seaside",
+      "ru": "Крафтовое пиво, сваренное с душой на берегу моря",
+      "vi": "Bia thủ công được ủ bằng cả tâm huyết bên bờ biển"
+    },
+    "ctas": {
+      "visit": {
+        "en": "Visit the brewery",
+        "ru": "Приехать в пивоварню",
+        "vi": "Đến thăm nhà máy"
+      },
+      "contact": {
+        "en": "Get in touch",
+        "ru": "Связаться",
+        "vi": "Liên hệ"
+      },
+      "partner": {
+        "en": "Become a partner",
+        "ru": "Стать партнёром",
+        "vi": "Trở thành đối tác"
+      }
+    },
+    "backgroundVideo": null,
+    "alt": {
+      "en": "Freshly poured Brew Brava beer with sea breeze behind",
+      "ru": "Свеженалитый бокал Brew Brava на фоне моря",
+      "vi": "Ly bia Brew Brava vừa rót với biển phía sau"
+    }
+  },
+  "brewing": {
+    "title": {
+      "en": "Honest brewing, vibrant ingredients",
+      "ru": "Честная варка, натуральные ингредиенты",
+      "vi": "Quy trình ủ chân thật, nguyên liệu sống động"
+    },
+    "text": {
+      "en": "We mash in small batches, oxygen-manage every transfer, and source malt, hops, yeast, and mineral water with full traceability. Each sip carries the salt-kissed air of Nha Trang and the craftsmanship of our team.",
+      "ru": "Мы варим малыми партиями, контролируем кислород на каждом этапе и закупаем солод, хмель, дрожжи и минеральную воду с полной трассируемостью. В каждом глотке — морской бриз Нячанга и мастерство нашей команды.",
+      "vi": "Chúng tôi ủ từng mẻ nhỏ, kiểm soát oxy trong mọi bước và chọn lựa malt, hoa bia, men và nước khoáng với nguồn gốc rõ ràng. Mỗi ngụm bia mang theo hương gió biển Nha Trang và tay nghề của đội ngũ Brew Brava."
+    },
+    "gallery": [
+      {
+        "slug": "malt",
+        "alt": {
+          "en": "Hand inspecting caramel malt kernels",
+          "ru": "Проверка карамельного солода руками",
+          "vi": "Kiểm tra hạt malt caramen bằng tay"
+        },
+        "caption": {
+          "en": "European two-row barley malt",
+          "ru": "Европейский двухрядный ячменный солод",
+          "vi": "Malt lúa mạch hai hàng từ châu Âu"
+        },
+        "image": "https://images.unsplash.com/photo-1563377577222-0d962f456fc7?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "slug": "hops",
+        "alt": {
+          "en": "Fresh green hop cones on burlap",
+          "ru": "Свежие шишки хмеля на мешковине",
+          "vi": "Nụ hoa bia xanh tươi trên vải bố"
+        },
+        "caption": {
+          "en": "Pacific and American hops",
+          "ru": "Хмель из Тихоокеанского региона и США",
+          "vi": "Hoa bia từ Thái Bình Dương và Mỹ"
+        },
+        "image": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "slug": "yeast",
+        "alt": {
+          "en": "Yeast propagation tank with foam",
+          "ru": "Ферментёр с активными дрожжами",
+          "vi": "Bồn nhân giống men đang hoạt động"
+        },
+        "caption": {
+          "en": "House-managed yeast cultures",
+          "ru": "Собственные культуры дрожжей",
+          "vi": "Chủ động quản lý chủng men"
+        },
+        "image": "https://images.unsplash.com/photo-1501179691627-2f9de9d1fa6d?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "slug": "water",
+        "alt": {
+          "en": "Filtered mountain water pouring into brewhouse",
+          "ru": "Фильтрованная горная вода поступает в варочный цех",
+          "vi": "Nước suối đã lọc chảy vào nhà nấu bia"
+        },
+        "caption": {
+          "en": "Mineral-balanced mountain water",
+          "ru": "Минерализованная горная вода",
+          "vi": "Nguồn nước khoáng cân bằng"
+        },
+        "image": "https://images.unsplash.com/photo-1469122312224-c5846569feb1?auto=format&fit=crop&w=1200&q=80"
+      }
+    ]
+  },
+  "beers": [
+    {
+      "slug": "pilsner",
+      "style": "Pilsner",
+      "abv": 4.8,
+      "ibu": 24,
+      "available": true,
+      "image_main": "https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=800&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1509225045603-3c4fd2484161?auto=format&fit=crop&w=800&q=80"
+      ],
+      "name": {
+        "en": "Pilsner",
+        "ru": "Pilsner",
+        "vi": "Pilsner"
+      },
+      "desc_short": {
+        "en": "A crisp, floral lager inspired by Bohemian classics.",
+        "ru": "Хрустящий цветочный лагер в духе богемской классики.",
+        "vi": "Lager thanh mảnh với hương hoa theo phong cách Bohemia."
+      },
+      "desc_long": {
+        "en": "Soft malt backbone and delicate Saaz hop aroma keep this pilsner endlessly refreshing on hot coastal days.",
+        "ru": "Мягкая солодовая основа и тонкий аромат хмеля Saaz делают этот пилснер бесконечно освежающим в жаркие дни у моря.",
+        "vi": "Thân malt nhẹ nhàng cùng hương Saaz tinh tế khiến pilsner luôn sảng khoái trong những ngày nắng biển."
+      }
+    },
+    {
+      "slug": "ipa",
+      "style": "IPA",
+      "abv": 6.0,
+      "ibu": 58,
+      "available": true,
+      "image_main": "https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&w=800&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1517627043994-b991abb62fcd?auto=format&fit=crop&w=800&q=80"
+      ],
+      "name": {
+        "en": "Tropical IPA",
+        "ru": "Tropical IPA",
+        "vi": "IPA Nhiệt Đới"
+      },
+      "desc_short": {
+        "en": "Bold citrus and passion fruit aroma with a dry finish.",
+        "ru": "Яркий цитрусово-маракуйевый аромат и сухое послевкусие.",
+        "vi": "Hương chanh dây và cam chanh nổi bật, kết thúc khô ráo."
+      },
+      "desc_long": {
+        "en": "Dry-hopped with Mosaic and Citra for waves of mango, citrus, and pine balanced by a clean bitterness.",
+        "ru": "Сухое охмеление Mosaic и Citra придаёт волны манго, цитруса и хвои, уравновешенные чистой горечью.",
+        "vi": "Ủ khô với Mosaic và Citra tạo nên tầng hương xoài, cam chanh và nhựa thông cân bằng cùng vị đắng sạch."
+      }
+    },
+    {
+      "slug": "porter",
+      "style": "Porter",
+      "abv": 5.5,
+      "ibu": 32,
+      "available": true,
+      "image_main": "https://images.unsplash.com/photo-1542223616-7722bf42161b?auto=format&fit=crop&w=800&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1436076863939-06870fe779c2?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1603398749948-2a5b3b1f6cf3?auto=format&fit=crop&w=800&q=80"
+      ],
+      "name": {
+        "en": "Sea Salt Porter",
+        "ru": "Sea Salt Porter",
+        "vi": "Porter Muối Biển"
+      },
+      "desc_short": {
+        "en": "Dark chocolate, caramel, and a whisper of sea salt.",
+        "ru": "Ноты тёмного шоколада, карамели и лёгкая морская соль.",
+        "vi": "Socola đen, caramel và chút muối biển nhẹ."
+      },
+      "desc_long": {
+        "en": "Conditioned on cacao nibs with a pinch of Nha Trang sea salt for a silky, coastal porter.",
+        "ru": "Выдержан на какао-крупке с щепоткой морской соли Нячанга — бархатистый прибрежный портер.",
+        "vi": "Ủ cùng hạt cacao và chút muối biển Nha Trang tạo nên porter mượt mà, đậm hương vị biển."
+      }
+    },
+    {
+      "slug": "mango-ale",
+      "style": "Fruit Ale",
+      "abv": 5.0,
+      "ibu": 18,
+      "available": true,
+      "image_main": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1580915411954-282cb1ca7890?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1527169402691-feff5539e52c?auto=format&fit=crop&w=800&q=80"
+      ],
+      "name": {
+        "en": "Mango Ale",
+        "ru": "Mango Ale",
+        "vi": "Mango Ale"
+      },
+      "desc_short": {
+        "en": "Juicy Nha Trang mango kissed with wheat softness.",
+        "ru": "Сочный манго из Нячанга и мягкость пшеничного солода.",
+        "vi": "Xoài Nha Trang mọng nước kết hợp sự êm dịu của lúa mì."
+      },
+      "desc_long": {
+        "en": "A sunshine glass: local mango puree, light acidity, and a silky wheat body that keeps you coming back.",
+        "ru": "Стакан солнечного света: пюре из местного манго, лёгкая кислотность и шёлковистая пшеничная основа.",
+        "vi": "Ly bia như ánh nắng: puree xoài địa phương, độ chua nhẹ và thân lúa mì mịn màng."
+      }
+    }
+  ],
+  "beersIntro": {
+    "title": {
+      "en": "Our beers",
+      "ru": "Наши сорта",
+      "vi": "Các dòng bia"
+    },
+    "subtitle": {
+      "en": "Flagship classics alongside playful experiments born from tropical inspiration.",
+      "ru": "Флагманская классика рядом с экспериментами, вдохновлёнными тропиками.",
+      "vi": "Dòng bia kinh điển kết hợp những thử nghiệm lấy cảm hứng từ nhiệt đới."
+    },
+    "cta": {
+      "en": "Where to try",
+      "ru": "Где попробовать",
+      "vi": "Thưởng thức ở đâu"
+    },
+    "footer": {
+      "en": "We honor timeless techniques in our pilsner and porter while exploring tropical fruits and hops in seasonal releases like Mango Ale.",
+      "ru": "Мы чтим классические техники в пилснере и портере, но при этом исследуем тропические фрукты и хмели в сезонных релизах вроде Mango Ale.",
+      "vi": "Chúng tôi giữ nguyên kỹ thuật truyền thống trong pilsner và porter, đồng thời khám phá trái cây và hoa bia nhiệt đới ở các phiên bản theo mùa như Mango Ale."
+    }
+  },
+  "team": {
+    "title": {
+      "en": "Who we are",
+      "ru": "Кто мы",
+      "vi": "Chúng tôi là ai"
+    },
+    "text": {
+      "en": "Story, Pankoff, and Shultz met on Vietnam's coast, sharing a vision for a brewery that blends European precision with local vibrancy. Since 2024, Brew Brava has been our independent home for small-batch beers.",
+      "ru": "Story, Pankoff и Shultz встретились на побережье Вьетнама и мечтали о пивоварне, сочетающей европейскую точность и локальную энергетику. С 2024 года Brew Brava — наш независимый дом для малых партий пива.",
+      "vi": "Story, Pankoff và Shultz gặp nhau ở bờ biển Việt Nam với mong muốn tạo nên nhà máy bia kết hợp sự chuẩn xác châu Âu và sức sống địa phương. Từ 2024, Brew Brava là mái nhà độc lập của chúng tôi cho những mẻ bia thủ công."
+    },
+    "gallery": [
+      {
+        "image": "https://images.unsplash.com/photo-1527169402691-feff5539e52c?auto=format&fit=crop&w=1200&q=80",
+        "alt": {
+          "en": "Brew Brava founders in the brewhouse",
+          "ru": "Основатели Brew Brava в варочном цехе",
+          "vi": "Nhà sáng lập Brew Brava trong nhà nấu bia"
+        },
+        "caption": {
+          "en": "From left: Story, Pankoff, Shultz",
+          "ru": "Слева направо: Story, Pankoff, Shultz",
+          "vi": "Từ trái sang phải: Story, Pankoff, Shultz"
+        }
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?auto=format&fit=crop&w=1200&q=80",
+        "alt": {
+          "en": "Brewing tanks inside Brew Brava",
+          "ru": "Варочные танки Brew Brava",
+          "vi": "Hệ thống tank ủ tại Brew Brava"
+        },
+        "caption": {
+          "en": "12HL brewhouse built in 2024",
+          "ru": "Варочный порядок 12 гл, 2024",
+          "vi": "Nhà nấu 12HL được lắp đặt năm 2024"
+        }
+      }
+    ]
+  },
+  "brewpub": {
+    "title": {
+      "en": "Cafe & brewery taproom",
+      "ru": "Кафе-пивоварня",
+      "vi": "Quán cafe & taproom"
+    },
+    "text": {
+      "en": "Sip beers poured straight from our tanks, pair them with coastal snacks, and feel the laid-back vibe of Nha Trang evenings.",
+      "ru": "Пробуйте пиво напрямую из наших танков, дополняйте закусками с побережья и ловите атмосферу расслабленных вечеров Нячанга.",
+      "vi": "Thưởng thức bia rót trực tiếp từ tank, kết hợp cùng món ăn vặt ven biển và tận hưởng không khí thư thái của Nha Trang buổi tối."
+    },
+    "highlights": [
+      {
+        "slug": "fresh",
+        "text": {
+          "en": "Tank-to-glass freshness",
+          "ru": "Свежесть из танка в бокал",
+          "vi": "Tươi ngon từ tank đến ly"
+        }
+      },
+      {
+        "slug": "ambience",
+        "text": {
+          "en": "Warm industrial ambience",
+          "ru": "Тёплая индустриальная атмосфера",
+          "vi": "Không gian công nghiệp ấm cúng"
+        }
+      },
+      {
+        "slug": "value",
+        "text": {
+          "en": "Local-friendly pricing",
+          "ru": "Доступные цены",
+          "vi": "Giá hợp lý cho người địa phương"
+        }
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1511084014994-1c29a0e4f3f4?auto=format&fit=crop&w=1200&q=80",
+    "alt": {
+      "en": "Guests enjoying beer at Brew Brava taproom",
+      "ru": "Гости наслаждаются пивом в тапруме Brew Brava",
+      "vi": "Khách thưởng thức bia tại taproom Brew Brava"
+    }
+  },
+  "licenses": {
+    "title": {
+      "en": "Licenses & certificates",
+      "ru": "Лицензии и сертификаты",
+      "vi": "Giấy phép & chứng nhận"
+    },
+    "text": {
+      "en": "We operate with full Vietnamese brewing licenses and food safety certifications. Sensitive data is blurred as required.",
+      "ru": "Мы работаем с полным набором вьетнамских лицензий на пивоварение и сертификатов пищевой безопасности. Персональные данные скрыты по требованиям.",
+      "vi": "Chúng tôi hoạt động với đầy đủ giấy phép sản xuất bia và chứng nhận an toàn thực phẩm tại Việt Nam. Thông tin nhạy cảm được làm mờ theo quy định."
+    },
+    "items": [
+      {
+        "title": {
+          "en": "Brewing production license",
+          "ru": "Лицензия на производство пива",
+          "vi": "Giấy phép sản xuất bia"
+        },
+        "issue_date": "2024-02-12",
+        "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "title": {
+          "en": "Food safety certificate",
+          "ru": "Сертификат пищевой безопасности",
+          "vi": "Chứng nhận an toàn thực phẩm"
+        },
+        "issue_date": "2024-03-04",
+        "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80"
+      }
+    ]
+  },
+  "availability": {
+    "title": {
+      "en": "Where to find Brew Brava",
+      "ru": "Где найти наше пиво",
+      "vi": "Tìm Brew Brava ở đâu"
+    },
+    "text": {
+      "en": "We self-distribute fresh kegs and cans across Nha Trang and are expanding to Ho Chi Minh City.",
+      "ru": "Мы сами поставляем свежие кеги и банки по Нячангу и расширяемся в Хошимин.",
+      "vi": "Chúng tôi tự phân phối keg và lon tươi tại Nha Trang và đang mở rộng tới TP.HCM."
+    },
+    "partners": [
+      {
+        "name": "Shoreside Hotel",
+        "type": "hotel",
+        "city": "Nha Trang",
+        "logo": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
+        "link": "https://example.com/shoreside"
+      },
+      {
+        "name": "Saigon Craft Bar",
+        "type": "bar",
+        "city": "Ho Chi Minh City",
+        "logo": "https://images.unsplash.com/photo-1542744173-05336fcc7ad4?auto=format&fit=crop&w=600&q=80",
+        "link": "https://example.com/saigoncraft"
+      }
+    ],
+    "fallback": {
+      "en": "We are expanding our partner network — reach out to tap Brew Brava in your venue.",
+      "ru": "Мы расширяем партнёрскую сеть — свяжитесь с нами, чтобы поставить Brew Brava в вашем заведении.",
+      "vi": "Chúng tôi đang mở rộng mạng lưới đối tác — hãy liên hệ để phục vụ Brew Brava tại địa điểm của bạn."
+    }
+  },
+  "b2b": {
+    "title": {
+      "en": "For partners",
+      "ru": "Партнёрам",
+      "vi": "Dành cho đối tác"
+    },
+    "intro": {
+      "en": "We deliver kegs, cans, and full support for bars, cafes, hotels, and retailers.",
+      "ru": "Мы поставляем кеги, банки и полную поддержку барам, кафе, отелям и магазинам.",
+      "vi": "Chúng tôi cung cấp keg, lon và hỗ trợ đầy đủ cho bar, cafe, khách sạn và cửa hàng."
+    },
+    "points": [
+      {
+        "slug": "formats",
+        "text": {
+          "en": "Kegs 20/30L and 330ml cans",
+          "ru": "Кеги 20/30 л и банки 330 мл",
+          "vi": "Keg 20/30L và lon 330ml"
+        }
+      },
+      {
+        "slug": "equipment",
+        "text": {
+          "en": "Draft system setup and staff training",
+          "ru": "Монтаж розливочного оборудования и обучение персонала",
+          "vi": "Lắp đặt hệ thống draft và đào tạo nhân viên"
+        }
+      },
+      {
+        "slug": "merch",
+        "text": {
+          "en": "Branded glassware and POS materials",
+          "ru": "Фирменная посуда и POS-материалы",
+          "vi": "Ly tách và POS thương hiệu"
+        }
+      },
+      {
+        "slug": "logistics",
+        "text": {
+          "en": "Cold-chain delivery twice a week",
+          "ru": "Холодная логистика дважды в неделю",
+          "vi": "Giao hàng lạnh hai lần mỗi tuần"
+        }
+      },
+      {
+        "slug": "support",
+        "text": {
+          "en": "Marketing support and launch events",
+          "ru": "Маркетинговая поддержка и запусковые события",
+          "vi": "Hỗ trợ marketing và sự kiện ra mắt"
+        }
+      }
+    ],
+    "form": {
+      "name": {
+        "en": "Name / Company",
+        "ru": "Имя / Компания",
+        "vi": "Tên / Công ty"
+      },
+      "phone": {
+        "en": "Phone or messenger",
+        "ru": "Телефон или мессенджер",
+        "vi": "Điện thoại hoặc messenger"
+      },
+      "email": {
+        "en": "Email",
+        "ru": "Email",
+        "vi": "Email"
+      },
+      "format": {
+        "en": "Business type",
+        "ru": "Формат сотрудничества",
+        "vi": "Loại hình hợp tác"
+      },
+      "volume": {
+        "en": "Monthly volume",
+        "ru": "Объёмы",
+        "vi": "Sản lượng hàng tháng"
+      },
+      "comment": {
+        "en": "Comment",
+        "ru": "Комментарий",
+        "vi": "Ghi chú"
+      },
+      "consent": {
+        "en": "I agree with the privacy policy",
+        "ru": "Я согласен с политикой конфиденциальности",
+        "vi": "Tôi đồng ý với chính sách bảo mật"
+      },
+      "submit": {
+        "en": "Send request",
+        "ru": "Отправить заявку",
+        "vi": "Gửi yêu cầu"
+      },
+      "success": {
+        "en": "Thank you! We will reach out within 24 hours.",
+        "ru": "Спасибо! Мы свяжемся с вами в течение 24 часов.",
+        "vi": "Cảm ơn! Chúng tôi sẽ liên hệ trong vòng 24 giờ."
+      },
+      "error": {
+        "en": "Something went wrong. Please try again or message us directly.",
+        "ru": "Что-то пошло не так. Попробуйте снова или напишите нам напрямую.",
+        "vi": "Có lỗi xảy ra. Vui lòng thử lại hoặc nhắn trực tiếp cho chúng tôi."
+      },
+      "validation": {
+        "required": {
+          "en": "This field is required",
+          "ru": "Поле обязательно",
+          "vi": "Bắt buộc"
+        },
+        "email": {
+          "en": "Please enter a valid email",
+          "ru": "Введите корректный email",
+          "vi": "Vui lòng nhập email hợp lệ"
+        }
+      }
+    },
+    "image": "https://images.unsplash.com/photo-1527169402691-feff5539e52c?auto=format&fit=crop&w=1200&q=80",
+    "alt": {
+      "en": "Brew Brava kegs prepared for delivery",
+      "ru": "Кеги Brew Brava, подготовленные к доставке",
+      "vi": "Keg Brew Brava chuẩn bị giao hàng"
+    }
+  },
+  "contact": {
+    "title": {
+      "en": "Stay in touch",
+      "ru": "Оставайтесь на связи",
+      "vi": "Giữ liên lạc"
+    },
+    "text": {
+      "en": "Call, message, or find your way to our taproom.",
+      "ru": "Позвоните, напишите или построите маршрут до нашего тапрума.",
+      "vi": "Gọi, nhắn tin hoặc tìm đường đến taproom của chúng tôi."
+    },
+    "ctaDirections": {
+      "en": "Get directions",
+      "ru": "Проложить маршрут",
+      "vi": "Chỉ đường"
+    },
+    "modalTitle": {
+      "en": "Contact Brew Brava",
+      "ru": "Связаться с Brew Brava",
+      "vi": "Liên hệ Brew Brava"
+    },
+    "modalText": {
+      "en": "Choose your messenger or drop us a call — we respond within minutes during opening hours.",
+      "ru": "Выберите удобный мессенджер или позвоните — мы отвечаем в течение нескольких минут в рабочее время.",
+      "vi": "Chọn ứng dụng nhắn tin hoặc gọi cho chúng tôi — luôn phản hồi trong vài phút khi mở cửa."
+    }
+  },
+  "footer": {
+    "mission": {
+      "en": "Independent craft brewery pouring seaside freshness to Vietnam.",
+      "ru": "Независимая крафтовая пивоварня, приносящая свежесть моря во Вьетнам.",
+      "vi": "Nhà máy bia thủ công độc lập mang hơi thở biển đến Việt Nam."
+    },
+    "navigation": {
+      "beers": {
+        "en": "Beers",
+        "ru": "Сорта",
+        "vi": "Các dòng bia"
+      },
+      "brewpub": {
+        "en": "Brewpub",
+        "ru": "Пивоварня",
+        "vi": "Taproom"
+      },
+      "partners": {
+        "en": "Partners",
+        "ru": "Партнёрам",
+        "vi": "Đối tác"
+      },
+      "contact": {
+        "en": "Contact",
+        "ru": "Контакты",
+        "vi": "Liên hệ"
+      }
+    },
+    "privacy": {
+      "en": "Privacy Policy",
+      "ru": "Политика конфиденциальности",
+      "vi": "Chính sách bảo mật"
+    },
+    "terms": {
+      "en": "Terms of Service",
+      "ru": "Условия использования",
+      "vi": "Điều khoản sử dụng"
+    },
+    "copyright": {
+      "en": "© Brew Brava {year}. All rights reserved.",
+      "ru": "© Brew Brava {year}. Все права защищены.",
+      "vi": "© Brew Brava {year}. Giữ toàn quyền."
+    }
+  },
+  "seo": {
+    "og": {
+      "type": "website",
+      "image": "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=1200&q=80"
+    }
+  }
+}
