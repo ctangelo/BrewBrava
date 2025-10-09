@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-foam text-night font-sans antialiased;
+}
+
+a {
+  @apply text-brand hover:text-brand-dark transition-colors;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-display text-night mb-6;
+}
+
+.section-subtitle {
+  @apply text-lg text-slate-600 max-w-3xl;
+}
+
+.card {
+  @apply rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-200/40;
+}
+
+.card-inner {
+  @apply p-6 md:p-8;
+}
+
+.button-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+}
+
+.button-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand px-5 py-3 text-sm font-semibold uppercase tracking-wide text-brand transition hover:bg-brand/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full bg-sand px-3 py-1 text-xs font-medium uppercase tracking-wide text-brand-dark;
+}
+
+.section-spacer {
+  @apply py-16 md:py-24;
+}
+
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+img[data-lazy-placeholder] {
+  filter: blur(20px);
+  transform: scale(1.05);
+}
+
+.modal-backdrop {
+  @apply fixed inset-0 z-40 bg-night/70 backdrop-blur-sm;
+}
+
+.modal-panel {
+  @apply card fixed inset-x-4 top-20 z-50 mx-auto max-w-2xl;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
