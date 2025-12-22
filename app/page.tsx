@@ -1,0 +1,741 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { ShieldCheck, ScrollText, CheckCircle2, Hop, Wheat } from "lucide-react";
+import { Header } from "@/components/Header";
+import { Hero, HeroContent } from "@/components/Hero";
+import { Section } from "@/components/Section";
+import { BeerCard } from "@/components/BeerCard";
+import { ContactForm, ContactFormCopy } from "@/components/ContactForm";
+import { Footer, FooterCopy } from "@/components/Footer";
+import { Language } from "@/lib/i18n";
+
+interface PageCopy {
+  header: {
+    links: { href: string; label: string }[];
+    cta: string;
+    language: string;
+  };
+  hero: HeroContent;
+  about: {
+    title: string;
+    subtitle: string;
+    body: string[];
+    tags: string[];
+  };
+  craft: {
+    title: string;
+    subtitle: string;
+    body: string;
+  };
+  team: {
+    title: string;
+    subtitle: string;
+    body: string[];
+    quote: string;
+  };
+  cafe: {
+    title: string;
+    subtitle: string;
+    copy: string;
+    cards: { title: string; copy: string }[];
+  };
+  trust: {
+    title: string;
+    subtitle: string;
+    items: { title: string; copy: string }[];
+  };
+  styles: {
+    title: string;
+    subtitle: string;
+    beers: { title: string; description: string; abv: string; tags: string[] }[];
+    note: string;
+    cta: string;
+  };
+  locations: {
+    title: string;
+    subtitle: string;
+    copy: string;
+    places: string[];
+    note: string;
+    button: string;
+    ctaCopy: string;
+  };
+  b2b: {
+    title: string;
+    subtitle: string;
+    intro: string;
+    listTitle: string;
+    bullets: string[];
+    outro: string;
+  };
+  form: ContactFormCopy;
+  footer: FooterCopy;
+}
+
+const translations: Record<Language, PageCopy> = {
+  ru: {
+    header: {
+      links: [
+        { href: "#about", label: "О нас" },
+        { href: "#styles", label: "Сорта" },
+        { href: "#cafe", label: "Кафе" },
+        { href: "#locations", label: "Где найти" },
+        { href: "#b2b", label: "B2B" },
+        { href: "#contacts", label: "Контакты" },
+      ],
+      cta: "Стать партнёром",
+      language: "Язык",
+    },
+    hero: {
+      kicker: "Brew Brava",
+      title: "Brew Brava — Крафтовое пиво, Нячанг",
+      subtitle: "Крафтовое пиво с характером. Сварено с душой у моря.",
+      badges: ["Сварено в Нячанге", "Натуральные ингредиенты", "Свежий розлив"],
+      primaryCta: "Посмотреть сорта",
+      secondaryCta: "Где попробовать",
+    },
+    about: {
+      title: "Мы варим честно",
+      subtitle: "Процессы",
+      body: [
+        "Мы варим пиво честно — с вниманием к каждой детали и строгим контролем технологического процесса. Используем только натуральные ингредиенты: импортный солод, ароматный хмель, специальные пивные дрожжи и чистую воду.",
+        "Работаем по классическим рецептам и подходим к варке каждой партии с опытом, точностью и уважением к ремеслу.",
+      ],
+      tags: ["Контроль качества", "Свежесть каждой варки", "Уважение к стилям"],
+    },
+    craft: {
+      title: "Классика + эксперименты",
+      subtitle: "Стили",
+      body: "Мы варим классику, которую любят во всём мире — Pilsner, IPA, Porter. А ещё экспериментируем с местными тропическими ингредиентами, как Mango Ale. Всё пиво свежее, сваренное в Нячанге.",
+    },
+    team: {
+      title: "Команда",
+      subtitle: "Люди",
+      body: [
+        "Мы команда искренних любителей пива, которые давно работают в Нячанге. Раньше наши пивовары варили пиво и создавали рецепты для ресторанов Story, Pankoff и Shultz, а с 2024 года открыли собственную пивоварню Brew Brava.",
+        "Наша цель — делать крафтовое пиво, которое любят и местные, и гости города.",
+      ],
+      quote: "«Крафт — это честность и вкус моря в каждой кружке.»",
+    },
+    cafe: {
+      title: "Кафе при пивоварне",
+      subtitle: "Тапрум",
+      copy: "В нашем кафе вы можете попробовать пиво прямо на пивоварне и своими глазами увидеть оборудование, которое мы используем. Прямой розлив из танков брожения — свежесть и вкус, которых не найти в бутылках из супермаркета. Уютная атмосфера, доступные цены и настоящая крафтовая культура в Нячанге.",
+      cards: [
+        { title: "Прямой розлив", copy: "Пиво из танков — максимум свежести." },
+        { title: "Увидеть производство", copy: "Оборудование и процесс в открытом доступе." },
+        { title: "Культура и атмосфера", copy: "Место, куда хочется вернуться." },
+      ],
+    },
+    trust: {
+      title: "Легально и сертифицировано",
+      subtitle: "Доверие",
+      items: [
+        { title: "Лицензии", copy: "Лицензии на производство и продажу пива." },
+        { title: "Сертификаты", copy: "Сертификаты качества на каждый сорт." },
+        { title: "Честность", copy: "Открытость в документации и поставках." },
+      ],
+    },
+    styles: {
+      title: "Сорта",
+      subtitle: "Линейка",
+      beers: [
+        {
+          title: "Pilsner — лёгкий и освежающий (ABV ~4.8%)",
+          description: "Классика лагерного стиля: светлый, мягкий, идеально подходит для жаркого дня.",
+          abv: "~4.8%",
+          tags: ["лёгкое", "лагер", "освежающее"],
+        },
+        {
+          title: "IPA — яркий и хмельной (ABV ~5.6%)",
+          description: "Пиво с насыщенным ароматом цитрусов и тропических фруктов. Любимый выбор любителей крафта и хмеля.",
+          abv: "~5.6%",
+          tags: ["хмельное", "цитрусовое", "ароматное"],
+        },
+        {
+          title: "Porter — насыщенный и мягкий (ABV ~5.5%)",
+          description: "Тёмное пиво с нотками шоколада и кофе, лёгкое и питкое. Отличный выбор для вечера.",
+          abv: "~5.5%",
+          tags: ["тёмное", "шоколад", "мягкое"],
+        },
+        {
+          title: "Mango Ale — фруктовый и тропический (ABV ~5%)",
+          description: "Нежный эль с добавлением манго. Яркий фруктовый вкус и лёгкая освежающая горчинка.",
+          abv: "~5%",
+          tags: ["фруктовое", "манго", "тропическое"],
+        },
+      ],
+      note: "Хотите попробовать или получить прайс? Мы быстро ответим и подберём формат поставок.",
+      cta: "Запросить прайс (B2B)",
+    },
+    locations: {
+      title: "Где можно найти наше пиво",
+      subtitle: "Точки",
+      copy: "Наше пиво подают в барах, ресторанах и магазинах Нячанга. Мы активно расширяем сеть партнёров и готовы предложить лучшие условия для новых заведений.",
+      places: [
+        "Бар SEA WAVE — набережная Нячанга",
+        "Ресторан Lotus Terrace — Tran Phu",
+        "Маркет Craft Corner — центр города",
+        "Beach Club Breeze — север Нячанга",
+        "Pizzeria Vespa — туристический квартал",
+      ],
+      note: "Список обновляется",
+      button: "Добавить своё заведение",
+      ctaCopy: "Напишите нам — подберём формат поставок и оборудование.",
+    },
+    b2b: {
+      title: "B2B — Партнёрам Brew Brava",
+      subtitle: "Сотрудничество",
+      intro:
+        "Brew Brava — надёжный поставщик крафтового пива для магазинов, баров и ресторанов. Мы предлагаем стабильные поставки пива в бутылках и кегах, профессиональное оборудование для розлива и высокий уровень сервиса на каждом этапе сотрудничества.",
+      listTitle: "Что мы предлагаем:",
+      bullets: [
+        "Пиво в бутылках и кегах — свежие партии и стабильное качество",
+        "Оборудование для розлива — установка, настройка и техническая поддержка",
+        "Работа с магазинами, барами, кафе и ресторанами",
+        "Регулярные поставки и удобная логистика",
+        "Лицензированный продукт, соответствующий всем требованиям",
+        "Персональный подход и оперативный сервис",
+      ],
+      outro:
+        "Сотрудничая с Brew Brava, вы получаете не просто поставщика пива, а партнёра, заинтересованного в росте ваших продаж и долгосрочном успехе.",
+    },
+    form: {
+      labels: {
+        name: "Имя",
+        company: "Заведение / Компания",
+        phone: "Телефон / WhatsApp",
+        email: "Email",
+        message: "Сообщение",
+      },
+      placeholders: {
+        name: "Ваше имя",
+        company: "Название заведения",
+        phone: "+84 ...",
+        email: "you@example.com",
+        message: "Расскажите, как вам удобно сотрудничать",
+      },
+      submitLabel: "Отправить заявку",
+      requiredError: "Обязательное поле",
+      emailError: "Некорректный email",
+      disclaimer: "Мы ответим в течение 1 рабочего дня.",
+      success: "Заявка сохранена. Мы свяжемся с вами — проверьте корректность контактов.",
+    },
+    footer: {
+      contactsLabel: "Контакты",
+      contactsTitle: "Всегда на связи",
+      phone: "+84 (000) 000-00-00",
+      email: "hello@brewbrava.com",
+      address: "Нячанг, Вьетнам",
+      social: [
+        { label: "Instagram", href: "https://instagram.com" },
+        { label: "Google Maps", href: "https://maps.google.com" },
+      ],
+      scrollLabel: "Наверх",
+      scrollTitle: "Плавный скролл",
+      scrollBody: "Хотите ещё раз взглянуть на сорта? Вернитесь к началу страницы и выберите разделы, которые важны для вас.",
+      scrollCta: "Наверх",
+      footerNote: "Крафтовое пиво с уважением к ремеслу.",
+    },
+  },
+  en: {
+    header: {
+      links: [
+        { href: "#about", label: "About" },
+        { href: "#styles", label: "Lineup" },
+        { href: "#cafe", label: "Taproom" },
+        { href: "#locations", label: "Where to find" },
+        { href: "#b2b", label: "B2B" },
+        { href: "#contacts", label: "Contacts" },
+      ],
+      cta: "Become a partner",
+      language: "Language",
+    },
+    hero: {
+      kicker: "Brew Brava",
+      title: "Brew Brava — Craft beer, Nha Trang",
+      subtitle: "Craft beer with character. Brewed with soul by the sea.",
+      badges: ["Brewed in Nha Trang", "Natural ingredients", "Freshly tapped"],
+      primaryCta: "See the beers",
+      secondaryCta: "Where to drink",
+    },
+    about: {
+      title: "We brew honestly",
+      subtitle: "Process",
+      body: [
+        "We brew honestly — carefully watching every detail and tightly controlling the process. Only natural ingredients: imported malt, aromatic hops, specialty yeast, and clean water.",
+        "We follow classic recipes and approach each batch with experience, precision, and respect for the craft.",
+      ],
+      tags: ["Quality control", "Fresh every batch", "Respect for styles"],
+    },
+    craft: {
+      title: "Classics + experiments",
+      subtitle: "Styles",
+      body: "We brew the classics loved worldwide — Pilsner, IPA, Porter. And we experiment with local tropical ingredients like Mango Ale. Every beer is fresh, brewed in Nha Trang.",
+    },
+    team: {
+      title: "Team",
+      subtitle: "People",
+      body: [
+        "We are a team of sincere beer lovers who have worked in Nha Trang for years. Our brewers created recipes for Story, Pankoff, and Shultz restaurants, and in 2024 opened our own brewery Brew Brava.",
+        "Our goal is to make craft beer that both locals and guests love.",
+      ],
+      quote: '“Craft is honesty and the taste of the sea in every glass.”',
+    },
+    cafe: {
+      title: "Brewery taproom",
+      subtitle: "Cafe",
+      copy: "In our cafe you can taste beer right at the brewery and see the equipment we use. Tank-to-tap serving means freshness you won’t find in supermarket bottles. Cozy atmosphere, fair prices, and real craft culture in Nha Trang.",
+      cards: [
+        { title: "Tank-to-tap", copy: "Beer straight from the tanks — maximum freshness." },
+        { title: "See the brewhouse", copy: "Equipment and process in open view." },
+        { title: "Culture & vibe", copy: "A place you want to return to." },
+      ],
+    },
+    trust: {
+      title: "Legal and certified",
+      subtitle: "Trust",
+      items: [
+        { title: "Licenses", copy: "Licenses for brewing and selling beer." },
+        { title: "Certificates", copy: "Quality certificates for every style." },
+        { title: "Transparency", copy: "Openness in documentation and supply." },
+      ],
+    },
+    styles: {
+      title: "Beers",
+      subtitle: "Lineup",
+      beers: [
+        {
+          title: "Pilsner — light and crisp (ABV ~4.8%)",
+          description: "Classic lager style: bright, smooth, perfect for a hot day.",
+          abv: "~4.8%",
+          tags: ["light", "lager", "refreshing"],
+        },
+        {
+          title: "IPA — bold and hoppy (ABV ~5.6%)",
+          description: "A beer packed with citrus and tropical hop aroma. A favorite choice for hop lovers.",
+          abv: "~5.6%",
+          tags: ["hoppy", "citrus", "aromatic"],
+        },
+        {
+          title: "Porter — rich and smooth (ABV ~5.5%)",
+          description: "Dark beer with notes of chocolate and coffee, easy-drinking and cozy.",
+          abv: "~5.5%",
+          tags: ["dark", "chocolate", "smooth"],
+        },
+        {
+          title: "Mango Ale — fruity and tropical (ABV ~5%)",
+          description: "Soft ale with mango. Bright fruit flavor and a gentle refreshing bitterness.",
+          abv: "~5%",
+          tags: ["fruity", "mango", "tropical"],
+        },
+      ],
+      note: "Want to taste or get our price list? We’ll respond fast and tailor deliveries.",
+      cta: "Request price list (B2B)",
+    },
+    locations: {
+      title: "Where to find our beer",
+      subtitle: "Locations",
+      copy: "Our beer is served in bars, restaurants, and shops across Nha Trang. We’re expanding our partner network and ready to offer the best terms for new venues.",
+      places: [
+        "SEA WAVE Bar — Nha Trang promenade",
+        "Lotus Terrace Restaurant — Tran Phu",
+        "Craft Corner Market — city center",
+        "Beach Club Breeze — north Nha Trang",
+        "Pizzeria Vespa — tourist district",
+      ],
+      note: "List keeps growing",
+      button: "Add your venue",
+      ctaCopy: "Tell us about your spot — we’ll suggest supply formats and equipment.",
+    },
+    b2b: {
+      title: "B2B — Brew Brava partners",
+      subtitle: "Collaboration",
+      intro:
+        "Brew Brava is a reliable supplier of craft beer for shops, bars, and restaurants. We provide steady deliveries in bottles and kegs, professional draft equipment, and high-level service at every step.",
+      listTitle: "What we offer:",
+      bullets: [
+        "Beer in bottles and kegs — fresh batches and stable quality",
+        "Draft equipment — installation, setup, and technical support",
+        "Work with shops, bars, cafes, and restaurants",
+        "Regular deliveries and convenient logistics",
+        "Licensed product that meets all requirements",
+        "Personal approach and responsive service",
+      ],
+      outro:
+        "By partnering with Brew Brava you get more than a beer supplier — you get a partner invested in your sales growth and long-term success.",
+    },
+    form: {
+      labels: {
+        name: "Name",
+        company: "Venue / Company",
+        phone: "Phone / WhatsApp",
+        email: "Email",
+        message: "Message",
+      },
+      placeholders: {
+        name: "Your name",
+        company: "Venue name",
+        phone: "+84 ...",
+        email: "you@example.com",
+        message: "Tell us how you prefer to work together",
+      },
+      submitLabel: "Send request",
+      requiredError: "Required field",
+      emailError: "Invalid email",
+      disclaimer: "We’ll reply within 1 business day.",
+      success: "Request saved. We’ll get back to you — please check your contacts are correct.",
+    },
+    footer: {
+      contactsLabel: "Contacts",
+      contactsTitle: "Always in touch",
+      phone: "+84 (000) 000-00-00",
+      email: "hello@brewbrava.com",
+      address: "Nha Trang, Vietnam",
+      social: [
+        { label: "Instagram", href: "https://instagram.com" },
+        { label: "Google Maps", href: "https://maps.google.com" },
+      ],
+      scrollLabel: "Back to top",
+      scrollTitle: "Smooth scroll",
+      scrollBody: "Want another look at the lineup? Return to the top and jump to the sections you need.",
+      scrollCta: "To top",
+      footerNote: "Craft beer with respect for the craft.",
+    },
+  },
+  vi: {
+    header: {
+      links: [
+        { href: "#about", label: "Về chúng tôi" },
+        { href: "#styles", label: "Dòng bia" },
+        { href: "#cafe", label: "Taproom" },
+        { href: "#locations", label: "Địa điểm" },
+        { href: "#b2b", label: "B2B" },
+        { href: "#contacts", label: "Liên hệ" },
+      ],
+      cta: "Trở thành đối tác",
+      language: "Ngôn ngữ",
+    },
+    hero: {
+      kicker: "Brew Brava",
+      title: "Brew Brava — Bia thủ công, Nha Trang",
+      subtitle: "Bia thủ công đậm cá tính. Nấu bằng cả tâm huyết bên bờ biển.",
+      badges: ["Nấu tại Nha Trang", "Nguyên liệu tự nhiên", "Rót tươi"],
+      primaryCta: "Xem các dòng bia",
+      secondaryCta: "Địa điểm thưởng thức",
+    },
+    about: {
+      title: "Chúng tôi nấu bia chân thật",
+      subtitle: "Quy trình",
+      body: [
+        "Chúng tôi nấu bia với sự chỉn chu từng chi tiết và kiểm soát chặt chẽ quy trình. Nguyên liệu hoàn toàn tự nhiên: malt nhập khẩu, hoa bia thơm, men bia chuyên dụng và nguồn nước sạch.",
+        "Dựa trên công thức cổ điển và thực hiện mỗi mẻ bằng kinh nghiệm, sự chính xác và tôn trọng nghề làm bia.",
+      ],
+      tags: ["Kiểm soát chất lượng", "Tươi ở mỗi mẻ nấu", "Tôn trọng phong cách"],
+    },
+    craft: {
+      title: "Cổ điển + thử nghiệm",
+      subtitle: "Phong cách",
+      body: "Chúng tôi nấu những phong cách kinh điển được yêu thích khắp thế giới — Pilsner, IPA, Porter. Và thử nghiệm với nguyên liệu nhiệt đới địa phương như Mango Ale. Tất cả đều tươi, nấu tại Nha Trang.",
+    },
+    team: {
+      title: "Đội ngũ",
+      subtitle: "Con người",
+      body: [
+        "Chúng tôi là những người yêu bia thực thụ đã gắn bó với Nha Trang nhiều năm. Trước đây, các brewmaster của chúng tôi nấu và phát triển công thức cho Story, Pankoff và Shultz; từ 2024 mở riêng Brew Brava.",
+        "Mục tiêu của chúng tôi — làm bia thủ công được cả người địa phương lẫn du khách yêu thích.",
+      ],
+      quote: '“Bia thủ công là sự chân thật và vị biển trong mỗi ly.”',
+    },
+    cafe: {
+      title: "Quán cafe tại nhà nấu",
+      subtitle: "Taproom",
+      copy: "Tại quán, bạn có thể thử bia ngay tại nhà nấu và tận mắt xem thiết bị chúng tôi dùng. Rót thẳng từ tank lên ly — độ tươi mà chai siêu thị không có được. Không khí ấm cúng, giá hợp lý và văn hóa craft thật sự ở Nha Trang.",
+      cards: [
+        { title: "Rót từ tank", copy: "Bia trực tiếp từ tank – tươi tối đa." },
+        { title: "Xem quy trình", copy: "Thiết bị và quy trình luôn mở để tham quan." },
+        { title: "Văn hóa & không khí", copy: "Nơi bạn muốn quay lại nhiều lần." },
+      ],
+    },
+    trust: {
+      title: "Hợp pháp và được chứng nhận",
+      subtitle: "Tin cậy",
+      items: [
+        { title: "Giấy phép", copy: "Đầy đủ giấy phép sản xuất và bán bia." },
+        { title: "Chứng nhận", copy: "Chứng nhận chất lượng cho từng dòng bia." },
+        { title: "Minh bạch", copy: "Mở với tài liệu và chuỗi cung ứng." },
+      ],
+    },
+    styles: {
+      title: "Các dòng bia",
+      subtitle: "Lineup",
+      beers: [
+        {
+          title: "Pilsner — nhẹ và sảng khoái (ABV ~4.8%)",
+          description: "Phong cách lager kinh điển: sáng, mượt, hoàn hảo cho ngày nóng.",
+          abv: "~4.8%",
+          tags: ["nhẹ", "lager", "mát lạnh"],
+        },
+        {
+          title: "IPA — đậm và nhiều hoa bia (ABV ~5.6%)",
+          description: "Bia tràn ngập hương cam chanh và trái cây nhiệt đới. Lựa chọn yêu thích của tín đồ hop.",
+          abv: "~5.6%",
+          tags: ["nhiều hop", "cam chanh", "thơm"],
+        },
+        {
+          title: "Porter — đậm đà và êm (ABV ~5.5%)",
+          description: "Bia đen với nốt chocolate và cà phê, dễ uống và ấm áp.",
+          abv: "~5.5%",
+          tags: ["bia đen", "chocolate", "êm"],
+        },
+        {
+          title: "Mango Ale — trái cây và nhiệt đới (ABV ~5%)",
+          description: "Ale nhẹ với xoài. Vị trái cây nổi bật và hậu vị đắng mát.",
+          abv: "~5%",
+          tags: ["trái cây", "xoài", "nhiệt đới"],
+        },
+      ],
+      note: "Muốn thử hoặc nhận bảng giá? Chúng tôi phản hồi nhanh và gợi ý cách giao phù hợp.",
+      cta: "Yêu cầu bảng giá (B2B)",
+    },
+    locations: {
+      title: "Có thể tìm bia ở đâu",
+      subtitle: "Địa điểm",
+      copy: "Bia của chúng tôi có tại các quán bar, nhà hàng và cửa hàng ở Nha Trang. Chúng tôi đang mở rộng mạng lưới đối tác và sẵn sàng ưu đãi cho địa điểm mới.",
+      places: [
+        "SEA WAVE Bar — dọc bờ biển Nha Trang",
+        "Lotus Terrace Restaurant — Trần Phú",
+        "Chợ Craft Corner — trung tâm",
+        "Beach Club Breeze — phía bắc Nha Trang",
+        "Pizzeria Vespa — khu du lịch",
+      ],
+      note: "Danh sách đang cập nhật",
+      button: "Thêm địa điểm của bạn",
+      ctaCopy: "Hãy nói về địa điểm của bạn — chúng tôi sẽ đề xuất cách cung cấp và thiết bị phù hợp.",
+    },
+    b2b: {
+      title: "B2B — Đối tác Brew Brava",
+      subtitle: "Hợp tác",
+      intro:
+        "Brew Brava là nhà cung cấp bia thủ công đáng tin cậy cho cửa hàng, quán bar và nhà hàng. Chúng tôi cung cấp bia chai và keg ổn định, thiết bị rót chuyên nghiệp và dịch vụ tận tâm ở mọi bước.",
+      listTitle: "Chúng tôi cung cấp:",
+      bullets: [
+        "Bia chai và keg — mẻ tươi, chất lượng ổn định",
+        "Thiết bị rót — lắp đặt, cân chỉnh và hỗ trợ kỹ thuật",
+        "Làm việc với cửa hàng, quán bar, cafe và nhà hàng",
+        "Giao hàng định kỳ và logistics thuận tiện",
+        "Sản phẩm có giấy phép, đáp ứng mọi tiêu chuẩn",
+        "Tiếp cận cá nhân và hỗ trợ nhanh chóng",
+      ],
+      outro:
+        "Hợp tác với Brew Brava, bạn nhận được không chỉ nhà cung cấp bia mà là đối tác đồng hành trong tăng trưởng doanh số và thành công dài hạn.",
+    },
+    form: {
+      labels: {
+        name: "Tên",
+        company: "Địa điểm / Công ty",
+        phone: "Điện thoại / WhatsApp",
+        email: "Email",
+        message: "Tin nhắn",
+      },
+      placeholders: {
+        name: "Tên của bạn",
+        company: "Tên địa điểm",
+        phone: "+84 ...",
+        email: "you@example.com",
+        message: "Hãy cho biết bạn muốn hợp tác thế nào",
+      },
+      submitLabel: "Gửi yêu cầu",
+      requiredError: "Bắt buộc",
+      emailError: "Email không hợp lệ",
+      disclaimer: "Chúng tôi sẽ phản hồi trong 1 ngày làm việc.",
+      success: "Đã lưu yêu cầu. Chúng tôi sẽ liên hệ — vui lòng kiểm tra thông tin liên lạc.",
+    },
+    footer: {
+      contactsLabel: "Liên hệ",
+      contactsTitle: "Luôn sẵn sàng",
+      phone: "+84 (000) 000-00-00",
+      email: "hello@brewbrava.com",
+      address: "Nha Trang, Việt Nam",
+      social: [
+        { label: "Instagram", href: "https://instagram.com" },
+        { label: "Google Maps", href: "https://maps.google.com" },
+      ],
+      scrollLabel: "Lên đầu trang",
+      scrollTitle: "Cuộn mượt",
+      scrollBody: "Muốn xem lại các dòng bia? Quay về đầu trang và chọn mục bạn cần.",
+      scrollCta: "Lên trên",
+      footerNote: "Bia thủ công với sự tôn trọng nghề làm bia.",
+    },
+  },
+};
+
+export default function HomePage() {
+  const [language, setLanguage] = useState<Language>("ru");
+  const copy = translations[language];
+
+  return (
+    <main className="relative min-h-screen bg-background text-white">
+      <Header
+        links={copy.header.links}
+        ctaLabel={copy.header.cta}
+        language={language}
+        languageLabel={copy.header.language}
+        onLanguageChange={setLanguage}
+      />
+      <Hero content={copy.hero} />
+
+      <Section id="about" title={copy.about.title} subtitle={copy.about.subtitle}>
+        <div className="grid gap-10 md:grid-cols-2 md:items-center">
+          <div className="space-y-4 text-gray-200">
+            {copy.about.body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            <div className="flex flex-wrap gap-3 text-sm">
+              {copy.about.tags.map((tag) => (
+                <span key={tag} className="rounded-full border border-white/10 px-4 py-2 text-gray-100">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="relative h-72 overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-soft md:h-full">
+            <Image src="/images/about.jpg" alt="Процесс варки" fill className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" />
+          </div>
+        </div>
+      </Section>
+
+      <Section id="craft" title={copy.craft.title} subtitle={copy.craft.subtitle} tone="muted">
+        <div className="space-y-4 text-gray-200">
+          <p>{copy.craft.body}</p>
+          <div className="flex items-center gap-6 text-accent">
+            <div className="h-px flex-1 bg-gradient-to-r from-accent/50 via-accent to-accent/0" />
+            <Hop />
+            <Wheat />
+            <ShieldCheck />
+            <div className="h-px flex-1 bg-gradient-to-l from-accent/50 via-accent to-accent/0" />
+          </div>
+        </div>
+      </Section>
+
+      <Section id="team" title={copy.team.title} subtitle={copy.team.subtitle}>
+        <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+          <div className="space-y-4 text-gray-200">
+            {copy.team.body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            <blockquote className="rounded-2xl border border-accent/40 bg-accent/10 p-4 text-lg text-accent">{copy.team.quote}</blockquote>
+          </div>
+          <div className="relative h-80 overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-soft">
+            <Image src="/images/team.jpg" alt="Команда Brew Brava" fill className="object-cover" sizes="(min-width: 768px) 45vw, 100vw" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+          </div>
+        </div>
+      </Section>
+
+      <Section id="cafe" title={copy.cafe.title} subtitle={copy.cafe.subtitle} tone="muted">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="space-y-4 text-gray-200">
+            <p>{copy.cafe.copy}</p>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {copy.cafe.cards.map((item) => (
+                <div key={item.title} className="card-sheen rounded-2xl border border-white/10 bg-surface/80 p-4">
+                  <h4 className="font-display text-lg text-white">{item.title}</h4>
+                  <p className="text-sm text-gray-300">{item.copy}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative h-72 overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-soft">
+            <Image src="/images/cafe.jpg" alt="Кафе при пивоварне" fill className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" />
+          </div>
+        </div>
+      </Section>
+
+      <Section id="trust" title={copy.trust.title} subtitle={copy.trust.subtitle}>
+        <div className="grid gap-6 sm:grid-cols-3">
+          {copy.trust.items.map(({ title, copy: description }) => (
+            <div key={title} className="rounded-2xl border border-white/10 bg-[#0f0f15] p-5 shadow-soft">
+              <div className="mb-3 inline-flex rounded-full bg-accent/15 p-2 text-accent">
+                {title === "Лицензии" || title === "Licenses" || title === "Giấy phép" ? <ScrollText size={20} /> : null}
+                {title === "Сертификаты" || title === "Certificates" || title === "Chứng nhận" ? <CheckCircle2 size={20} /> : null}
+                {title === "Честность" || title === "Transparency" || title === "Minh bạch" ? <ShieldCheck size={20} /> : null}
+              </div>
+              <h4 className="font-display text-lg text-white">{title}</h4>
+              <p className="text-sm text-gray-300">{description}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="styles" title={copy.styles.title} subtitle={copy.styles.subtitle} tone="muted">
+        <div className="grid gap-6 md:grid-cols-2">
+          {copy.styles.beers.map((style, index) => (
+            <BeerCard key={style.title} index={index} {...style} />
+          ))}
+        </div>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-gray-300">{copy.styles.note}</p>
+          <a
+            href="#b2b"
+            className="rounded-full bg-accent px-6 py-3 text-center text-black font-semibold shadow-soft transition hover:-translate-y-1"
+          >
+            {copy.styles.cta}
+          </a>
+        </div>
+      </Section>
+
+      <Section id="locations" title={copy.locations.title} subtitle={copy.locations.subtitle}>
+        <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-start">
+          <div className="space-y-3 text-gray-200">
+            <p>{copy.locations.copy}</p>
+            <ul className="space-y-2 text-sm">
+              {copy.locations.places.map((place) => (
+                <li key={place} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                  <span className="h-2 w-2 rounded-full bg-accent" />
+                  {place}
+                </li>
+              ))}
+              <li className="text-gray-400">{copy.locations.note}</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-accent/30 bg-accent/10 p-5 text-white shadow-soft">
+            <h4 className="font-display text-xl">{copy.locations.button}</h4>
+            <p className="text-sm text-gray-200">{copy.locations.ctaCopy}</p>
+            <a
+              href="#b2b"
+              className="mt-4 inline-flex w-full justify-center rounded-full border border-accent bg-accent px-4 py-3 text-black font-semibold shadow-soft transition hover:-translate-y-1"
+            >
+              {copy.locations.button}
+            </a>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="b2b" title={copy.b2b.title} subtitle={copy.b2b.subtitle} tone="muted">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div className="space-y-4 text-gray-200">
+            <p>{copy.b2b.intro}</p>
+            <p className="font-display text-xl text-white">{copy.b2b.listTitle}</p>
+            <ul className="space-y-2 text-sm text-gray-200">
+              {copy.b2b.bullets.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-gray-200">{copy.b2b.outro}</p>
+          </div>
+          <ContactForm copy={copy.form} />
+        </div>
+      </Section>
+
+      <Footer copy={copy.footer} />
+    </main>
+  );
+}
