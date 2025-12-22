@@ -2,18 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react";
+import { Language, languageOptions } from "@/lib/i18n";
 
-const links = [
-  { href: "#about", label: "О нас" },
-  { href: "#styles", label: "Сорта" },
-  { href: "#cafe", label: "Кафе" },
-  { href: "#locations", label: "Где найти" },
-  { href: "#b2b", label: "B2B" },
-  { href: "#contacts", label: "Контакты" },
-];
+interface HeaderProps {
+  links: { href: string; label: string }[];
+  ctaLabel: string;
+  language: Language;
+  languageLabel: string;
+  onLanguageChange: (lang: Language) => void;
+}
 
-export function Header() {
+export function Header({ links, ctaLabel, language, languageLabel, onLanguageChange }: HeaderProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -28,11 +28,29 @@ export function Header() {
               {link.label}
             </a>
           ))}
+          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-200">
+            <Languages size={14} className="text-accent" />
+            <label className="sr-only" htmlFor="language-select-desktop">
+              {languageLabel}
+            </label>
+            <select
+              id="language-select-desktop"
+              value={language}
+              onChange={(event) => onLanguageChange(event.target.value as Language)}
+              className="bg-transparent text-sm focus:outline-none"
+            >
+              {languageOptions.map((option) => (
+                <option key={option.value} value={option.value} className="bg-surface text-gray-900">
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
           <a
             href="#b2b"
             className="rounded-full border border-accent/60 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10"
           >
-            Стать партнёром
+            {ctaLabel}
           </a>
         </nav>
         <button
@@ -57,12 +75,33 @@ export function Header() {
                   {link.label}
                 </a>
               ))}
+              <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                <Languages size={16} className="text-accent" />
+                <label className="sr-only" htmlFor="language-select-mobile">
+                  {languageLabel}
+                </label>
+                <select
+                  id="language-select-mobile"
+                  value={language}
+                  onChange={(event) => {
+                    onLanguageChange(event.target.value as Language);
+                    setOpen(false);
+                  }}
+                  className="w-full bg-transparent text-sm focus:outline-none"
+                >
+                  {languageOptions.map((option) => (
+                    <option key={option.value} value={option.value} className="bg-surface text-gray-900">
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <a
                 href="#b2b"
                 className="mt-2 rounded-lg bg-accent px-3 py-2 text-center text-black font-semibold"
                 onClick={() => setOpen(false)}
               >
-                Стать партнёром
+                {ctaLabel}
               </a>
             </div>
           </div>

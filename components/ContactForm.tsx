@@ -10,6 +10,28 @@ interface FormState {
   message: string;
 }
 
+export interface ContactFormCopy {
+  labels: {
+    name: string;
+    company: string;
+    phone: string;
+    email: string;
+    message: string;
+  };
+  placeholders: {
+    name: string;
+    company: string;
+    phone: string;
+    email: string;
+    message: string;
+  };
+  submitLabel: string;
+  requiredError: string;
+  emailError: string;
+  disclaimer: string;
+  success: string;
+}
+
 const initialState: FormState = {
   name: "",
   company: "",
@@ -18,7 +40,7 @@ const initialState: FormState = {
   message: "",
 };
 
-export function ContactForm() {
+export function ContactForm({ copy }: { copy: ContactFormCopy }) {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -36,13 +58,13 @@ export function ContactForm() {
 
     requiredFields.forEach((field) => {
       if (!form[field]?.trim()) {
-        newErrors[field] = "Обязательное поле";
+        newErrors[field] = copy.requiredError;
       }
     });
 
     const emailRegex = /[^\s@]+@[^\s@]+\.[^\s@]+/;
     if (form.email && !emailRegex.test(form.email)) {
-      newErrors.email = "Некорректный email";
+      newErrors.email = copy.emailError;
     }
 
     if (Object.keys(newErrors).length) {
@@ -58,54 +80,54 @@ export function ContactForm() {
       <form className="flex flex-col gap-4" onSubmit={handleSubmit} noValidate>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="flex flex-col gap-2">
-            <label className="text-sm text-gray-300">Имя *</label>
+            <label className="text-sm text-gray-300">{copy.labels.name} *</label>
             <input
               value={form.name}
               onChange={handleChange("name")}
               className="rounded-lg border border-white/10 bg-white/5 px-3 py-3 text-sm text-white outline-none focus:border-accent"
-              placeholder="Ваше имя"
+              placeholder={copy.placeholders.name}
             />
             {errors.name && <span className="text-xs text-accent">{errors.name}</span>}
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-sm text-gray-300">Заведение / Компания *</label>
+            <label className="text-sm text-gray-300">{copy.labels.company} *</label>
             <input
               value={form.company}
               onChange={handleChange("company")}
               className="rounded-lg border border-white/10 bg-white/5 px-3 py-3 text-sm text-white outline-none focus:border-accent"
-              placeholder="Название заведения"
+              placeholder={copy.placeholders.company}
             />
             {errors.company && <span className="text-xs text-accent">{errors.company}</span>}
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-sm text-gray-300">Телефон / WhatsApp *</label>
+            <label className="text-sm text-gray-300">{copy.labels.phone} *</label>
             <input
               value={form.phone}
               onChange={handleChange("phone")}
               className="rounded-lg border border-white/10 bg-white/5 px-3 py-3 text-sm text-white outline-none focus:border-accent"
-              placeholder="+84 ..."
+              placeholder={copy.placeholders.phone}
             />
             {errors.phone && <span className="text-xs text-accent">{errors.phone}</span>}
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-sm text-gray-300">Email *</label>
+            <label className="text-sm text-gray-300">{copy.labels.email} *</label>
             <input
               type="email"
               value={form.email}
               onChange={handleChange("email")}
               className="rounded-lg border border-white/10 bg-white/5 px-3 py-3 text-sm text-white outline-none focus:border-accent"
-              placeholder="you@example.com"
+              placeholder={copy.placeholders.email}
             />
             {errors.email && <span className="text-xs text-accent">{errors.email}</span>}
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-sm text-gray-300">Сообщение *</label>
+          <label className="text-sm text-gray-300">{copy.labels.message} *</label>
           <textarea
             value={form.message}
             onChange={handleChange("message")}
             className="h-28 rounded-lg border border-white/10 bg-white/5 px-3 py-3 text-sm text-white outline-none focus:border-accent"
-            placeholder="Расскажите, как вам удобно сотрудничать"
+            placeholder={copy.placeholders.message}
           />
           {errors.message && <span className="text-xs text-accent">{errors.message}</span>}
         </div>
@@ -113,12 +135,12 @@ export function ContactForm() {
           type="submit"
           className="mt-2 w-full rounded-full bg-accent px-6 py-3 text-center text-black font-semibold shadow-soft transition hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(211,139,38,0.35)]"
         >
-          Отправить заявку
+          {copy.submitLabel}
         </button>
-        <p className="text-xs text-gray-400">Мы ответим в течение 1 рабочего дня.</p>
+        <p className="text-xs text-gray-400">{copy.disclaimer}</p>
         {submitted && !Object.keys(errors).length && (
           <div className="rounded-lg border border-accent/40 bg-accent/10 px-3 py-2 text-sm text-accent">
-            Заявка сохранена. Мы свяжемся с вами — проверьте корректность контактов.
+            {copy.success}
           </div>
         )}
       </form>
