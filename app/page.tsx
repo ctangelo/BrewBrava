@@ -304,6 +304,7 @@ const translations: Record<Language, PageCopy> = {
     trust: {
       title: "Legal and certified",
       subtitle: "Trust",
+      text:"",
       items: [
         { title: "Licenses", copy: "Licenses for brewing and selling beer." },
         { title: "Certificates", copy: "Quality certificates for every style." },
@@ -469,6 +470,7 @@ const translations: Record<Language, PageCopy> = {
     trust: {
       title: "Hợp pháp và được chứng nhận",
       subtitle: "Tin cậy",
+      text:"",
       items: [
         { title: "Giấy phép", copy: "Đầy đủ giấy phép sản xuất và bán bia." },
         { title: "Chứng nhận", copy: "Chứng nhận chất lượng cho từng dòng bia." },
