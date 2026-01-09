@@ -13,9 +13,17 @@ const config: Config = {
         accent: "#d38b26",
         muted: "#9ca3af",
       },
+
+      // fontFamily: {
+      //   sans: ["Inter", "var(--font-inter)", "system-ui", "-apple-system"],
+      //   display: ["Oswald", "var(--font-oswald)", "Inter", "sans-serif"],
+      // },
       fontFamily: {
-        sans: ["Inter", "var(--font-inter)", "system-ui", "-apple-system"],
-        display: ["Oswald", "var(--font-oswald)", "Inter", "sans-serif"],
+        sans: ["var(--font-gilroy)", "system-ui", "sans-serif"],
+        display: ["var(--font-gilroy)", "system-ui", "sans-serif"],
+      },
+      fontSize: {
+        base: "30px",
       },
       boxShadow: {
         soft: "0 10px 40px rgba(0,0,0,0.35)",

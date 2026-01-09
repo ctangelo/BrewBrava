@@ -1,9 +1,17 @@
 "use client";
 
+
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Languages } from "lucide-react";
 import { Language, languageOptions } from "@/lib/i18n";
+
+const LANG_FLAGS: Record<Language, { src: string; alt: string }> = {
+  ru: { src: "/flags/ru.svg", alt: "RU" },
+  en: { src: "/flags/en.svg", alt: "EN" },
+  vi: { src: "/flags/vi.svg", alt: "VN" },
+};
 
 interface HeaderProps {
   links: { href: string; label: string }[];
@@ -19,9 +27,20 @@ export function Header({ links, ctaLabel, language, languageLabel, onLanguageCha
   return (
     <header className="fixed inset-x-0 top-0 z-40 backdrop-blur-lg bg-background/80 border-b border-white/10">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
-        <Link href="#hero" className="font-display text-xl tracking-wide uppercase text-gradient">
-          Brew Brava
+        <Link
+          href="#hero"
+          className="flex items-center gap-3 font-display text-xl tracking-wide uppercase text-gradient"
+        >
+          <Image
+            src="/logo.png"
+            alt="Brew Brava"
+            width={32}
+            height={32}
+            priority
+          />
+          <span>Brew Brava</span>
         </Link>
+
         <nav className="hidden items-center gap-8 text-sm font-medium text-gray-200 md:flex">
           {links.map((link) => (
             <a key={link.href} href={link.href} className="hover:text-white">
@@ -30,6 +49,15 @@ export function Header({ links, ctaLabel, language, languageLabel, onLanguageCha
           ))}
           <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-200">
             <Languages size={14} className="text-accent" />
+            <Image
+              src={LANG_FLAGS[language].src}
+              alt={LANG_FLAGS[language].alt}
+              width={16}
+              height={16}
+              className="rounded-sm"
+              priority
+            />
+
             <label className="sr-only" htmlFor="language-select-desktop">
               {languageLabel}
             </label>
@@ -77,6 +105,15 @@ export function Header({ links, ctaLabel, language, languageLabel, onLanguageCha
               ))}
               <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
                 <Languages size={16} className="text-accent" />
+                <Image
+                  src={LANG_FLAGS[language].src}
+                  alt={LANG_FLAGS[language].alt}
+                  width={18}
+                  height={18}
+                  className="rounded-sm"
+                  priority
+                />
+
                 <label className="sr-only" htmlFor="language-select-mobile">
                   {languageLabel}
                 </label>

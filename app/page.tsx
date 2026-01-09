@@ -10,6 +10,8 @@ import { BeerCard } from "@/components/BeerCard";
 import { ContactForm, ContactFormCopy } from "@/components/ContactForm";
 import { Footer, FooterCopy } from "@/components/Footer";
 import { Language } from "@/lib/i18n";
+import { ImageCarousel } from "@/components/ImageCarousel";
+
 
 interface PageCopy {
   header: {
@@ -44,6 +46,7 @@ interface PageCopy {
   trust: {
     title: string;
     subtitle: string;
+    text: string;
     items: { title: string; copy: string }[];
   };
   styles: {
@@ -80,7 +83,9 @@ const translations: Record<Language, PageCopy> = {
       links: [
         { href: "#about", label: "О нас" },
         { href: "#styles", label: "Сорта" },
+        { href: "#team", label: "Команда" },
         { href: "#cafe", label: "Кафе" },
+        // { href: "#trust", label: "Лицензии" },
         { href: "#locations", label: "Где найти" },
         { href: "#b2b", label: "B2B" },
         { href: "#contacts", label: "Контакты" },
@@ -91,17 +96,17 @@ const translations: Record<Language, PageCopy> = {
     hero: {
       kicker: "Brew Brava",
       title: "Brew Brava — Крафтовое пиво, Нячанг",
-      subtitle: "Крафтовое пиво с характером. Сварено с душой у моря.",
+      subtitle: "Крафтовое пиво, сваренное с душой, на берегу моря",
       badges: ["Сварено в Нячанге", "Натуральные ингредиенты", "Свежий розлив"],
       primaryCta: "Посмотреть сорта",
       secondaryCta: "Где попробовать",
     },
     about: {
-      title: "Мы варим честно",
-      subtitle: "Процессы",
+      title: "Варка пива",
+      subtitle: "Наши ингредиенты",
       body: [
-        "Мы варим пиво честно — с вниманием к каждой детали и строгим контролем технологического процесса. Используем только натуральные ингредиенты: импортный солод, ароматный хмель, специальные пивные дрожжи и чистую воду.",
-        "Работаем по классическим рецептам и подходим к варке каждой партии с опытом, точностью и уважением к ремеслу.",
+        "Мы варим честно, с пристальным вниманием к технологическому процесу.",
+        "Используем только натуральные ингредиенты: импортный солод, ароматный хмель, специальные дрожжи и чистую воду. Варим по классическим рецептам, подходим с опытом и вниманием к производству каждой партии.",
       ],
       tags: ["Контроль качества", "Свежесть каждой варки", "Уважение к стилям"],
     },
@@ -112,17 +117,17 @@ const translations: Record<Language, PageCopy> = {
     },
     team: {
       title: "Команда",
-      subtitle: "Люди",
+      subtitle: "Кто мы",
       body: [
         "Мы команда искренних любителей пива, которые давно работают в Нячанге. Раньше наши пивовары варили пиво и создавали рецепты для ресторанов Story, Pankoff и Shultz, а с 2024 года открыли собственную пивоварню Brew Brava.",
-        "Наша цель — делать крафтовое пиво, которое любят и местные, и гости города.",
+        
       ],
-      quote: "«Крафт — это честность и вкус моря в каждой кружке.»",
+      quote: "«Наша цель — делать крафтовое пиво, которое любят и местные, и гости города.»",
     },
     cafe: {
-      title: "Кафе при пивоварне",
+      title: "Кафе-пивоварня",
       subtitle: "Тапрум",
-      copy: "В нашем кафе вы можете попробовать пиво прямо на пивоварне и своими глазами увидеть оборудование, которое мы используем. Прямой розлив из танков брожения — свежесть и вкус, которых не найти в бутылках из супермаркета. Уютная атмосфера, доступные цены и настоящая крафтовая культура в Нячанге.",
+      copy: "В нашем кафе вы можете попробовать пиво прямо на пивоварне и своими глазами увидеть оборудование, которое мы используем. Прямой розлив из танков брожения, свежесть и вкус, которых нет в бутылках из супермаркета. Уютная атмосфера, доступные цены и настоящая крафтовая культура в Нячанге.",
       cards: [
         { title: "Прямой розлив", copy: "Пиво из танков — максимум свежести." },
         { title: "Увидеть производство", copy: "Оборудование и процесс в открытом доступе." },
@@ -130,44 +135,46 @@ const translations: Record<Language, PageCopy> = {
       ],
     },
     trust: {
-      title: "Легально и сертифицировано",
+      title: "Лицензии и сертификаты",
       subtitle: "Доверие",
+      text:"Вся продукция Brew Brava легальна и сертифицирована. У нас есть лицензии на производство и продажу пива, сертификаты качества по каждому сорту. Мы открыты и честны со своими клиентами и партнёрами.",
       items: [
         { title: "Лицензии", copy: "Лицензии на производство и продажу пива." },
         { title: "Сертификаты", copy: "Сертификаты качества на каждый сорт." },
         { title: "Честность", copy: "Открытость в документации и поставках." },
       ],
     },
+
     styles: {
       title: "Сорта",
       subtitle: "Линейка",
       beers: [
         {
-          title: "Pilsner — лёгкий и освежающий (ABV ~4.8%)",
-          description: "Классика лагерного стиля: светлый, мягкий, идеально подходит для жаркого дня.",
+          title: "Pilsner",
+          description: "Классический светлый лагер с прозрачным цветом и сбалансированным вкусом. Мягкая солодовая основа сочетается с лёгкой, освежающей хмелевой горчинкой. Пьётся легко и оставляет чистое, сухое послевкусие.",
           abv: "~4.8%",
           tags: ["лёгкое", "лагер", "освежающее"],
         },
         {
-          title: "IPA — яркий и хмельной (ABV ~5.6%)",
-          description: "Пиво с насыщенным ароматом цитрусов и тропических фруктов. Любимый выбор любителей крафта и хмеля.",
+          title: "IPA",
+          description: "Ароматный и насыщенный эль с ярко выраженным хмелевым характером. Во вкусе раскрываются цитрусовые и фруктовые оттенки, дополненные приятной горчинкой. Полнотелый, выразительный и запоминающийся сорт для любителей интенсивного вкуса.",
           abv: "~5.6%",
           tags: ["хмельное", "цитрусовое", "ароматное"],
         },
         {
-          title: "Porter — насыщенный и мягкий (ABV ~5.5%)",
-          description: "Тёмное пиво с нотками шоколада и кофе, лёгкое и питкое. Отличный выбор для вечера.",
+          title: "Porter",
+          description: "Тёмный эль с глубоким цветом и мягкой текстурой. Вкус округлый и сбалансированный, с лёгкими сладковатыми нотами и бархатным послевкусием. Спокойный и насыщенный сорт, идеально подходящий для неспешного наслаждения.",
           abv: "~5.5%",
           tags: ["тёмное", "шоколад", "мягкое"],
         },
         {
-          title: "Mango Ale — фруктовый и тропический (ABV ~5%)",
-          description: "Нежный эль с добавлением манго. Яркий фруктовый вкус и лёгкая освежающая горчинка.",
+          title: "Mango Ale",
+          description: "Сочный фруктовый эль с ярким ароматом спелого манго. Вкус свежий и гармоничный, с лёгкой сладостью и мягкой кислинкой. Освежающий и экзотический сорт, который легко пьётся и оставляет приятное послевкусие.",
           abv: "~5%",
           tags: ["фруктовое", "манго", "тропическое"],
         },
       ],
-      note: "Хотите попробовать или получить прайс? Мы быстро ответим и подберём формат поставок.",
+      note: "Мы варим классику, которую любят во всём мире — Pilsner, IPA, Porter. А ещё экспериментируем с местными тропическими ингридиентами, как Mango Ale. Всё пиво свежее, сваренное в Нячанге.",
       cta: "Запросить прайс (B2B)",
     },
     locations: {
@@ -189,7 +196,7 @@ const translations: Record<Language, PageCopy> = {
       title: "B2B — Партнёрам Brew Brava",
       subtitle: "Сотрудничество",
       intro:
-        "Brew Brava — надёжный поставщик крафтового пива для магазинов, баров и ресторанов. Мы предлагаем стабильные поставки пива в бутылках и кегах, профессиональное оборудование для розлива и высокий уровень сервиса на каждом этапе сотрудничества.",
+        "Мы работаем с кафе, барами, ресторанами и магазинами. Поставляем пиво в кегах и бутылках. При необходимости устанавливаем оборудование для розлива и предоставляем фирменные кружки. Сотрудничество с Brew Brava — это свежие поставки, лицензированный продукт и поддержка партнёров.",
       listTitle: "Что мы предлагаем:",
       bullets: [
         "Пиво в бутылках и кегах — свежие партии и стабильное качество",
@@ -602,73 +609,19 @@ export default function HomePage() {
             </div>
           </div>
           <div className="relative h-72 overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-soft md:h-full">
-            <Image src="/images/about.jpg" alt="Процесс варки" fill className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" />
+            {/* <Image src="/images/about.jpg" alt="Процесс варки" fill className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" /> */}
+            <ImageCarousel
+              images={[
+                { src: "/images/about_1.jpg", alt: "Brew Brava" },
+                { src: "/images/about_4.jpg", alt: "Brew Brava" },
+                { src: "/images/about_3.jpg", alt: "Brew Brava" },
+                { src: "/images/about_2.jpg", alt: "Brew Brava" },
+              ]}
+              slideClassName="h-72"
+              sizes="(min-width: 1024px) 40vw, 100vw"
+            />
             <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" />
           </div>
-        </div>
-      </Section>
-
-      <Section id="craft" title={copy.craft.title} subtitle={copy.craft.subtitle} tone="muted">
-        <div className="space-y-4 text-gray-200">
-          <p>{copy.craft.body}</p>
-          <div className="flex items-center gap-6 text-accent">
-            <div className="h-px flex-1 bg-gradient-to-r from-accent/50 via-accent to-accent/0" />
-            <Hop />
-            <Wheat />
-            <ShieldCheck />
-            <div className="h-px flex-1 bg-gradient-to-l from-accent/50 via-accent to-accent/0" />
-          </div>
-        </div>
-      </Section>
-
-      <Section id="team" title={copy.team.title} subtitle={copy.team.subtitle}>
-        <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
-          <div className="space-y-4 text-gray-200">
-            {copy.team.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            <blockquote className="rounded-2xl border border-accent/40 bg-accent/10 p-4 text-lg text-accent">{copy.team.quote}</blockquote>
-          </div>
-          <div className="relative h-80 overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-soft">
-            <Image src="/images/team.jpg" alt="Команда Brew Brava" fill className="object-cover" sizes="(min-width: 768px) 45vw, 100vw" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-          </div>
-        </div>
-      </Section>
-
-      <Section id="cafe" title={copy.cafe.title} subtitle={copy.cafe.subtitle} tone="muted">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-          <div className="space-y-4 text-gray-200">
-            <p>{copy.cafe.copy}</p>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {copy.cafe.cards.map((item) => (
-                <div key={item.title} className="card-sheen rounded-2xl border border-white/10 bg-surface/80 p-4">
-                  <h4 className="font-display text-lg text-white">{item.title}</h4>
-                  <p className="text-sm text-gray-300">{item.copy}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="relative h-72 overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-soft">
-            <Image src="/images/cafe.jpg" alt="Кафе при пивоварне" fill className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" />
-          </div>
-        </div>
-      </Section>
-
-      <Section id="trust" title={copy.trust.title} subtitle={copy.trust.subtitle}>
-        <div className="grid gap-6 sm:grid-cols-3">
-          {copy.trust.items.map(({ title, copy: description }) => (
-            <div key={title} className="rounded-2xl border border-white/10 bg-[#0f0f15] p-5 shadow-soft">
-              <div className="mb-3 inline-flex rounded-full bg-accent/15 p-2 text-accent">
-                {title === "Лицензии" || title === "Licenses" || title === "Giấy phép" ? <ScrollText size={20} /> : null}
-                {title === "Сертификаты" || title === "Certificates" || title === "Chứng nhận" ? <CheckCircle2 size={20} /> : null}
-                {title === "Честность" || title === "Transparency" || title === "Minh bạch" ? <ShieldCheck size={20} /> : null}
-              </div>
-              <h4 className="font-display text-lg text-white">{title}</h4>
-              <p className="text-sm text-gray-300">{description}</p>
-            </div>
-          ))}
         </div>
       </Section>
 
@@ -687,6 +640,93 @@ export default function HomePage() {
             {copy.styles.cta}
           </a>
         </div>
+      </Section>
+
+      <Section id="team" title={copy.team.title} subtitle={copy.team.subtitle}>
+        <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+          <div className="space-y-4 text-gray-200">
+            {copy.team.body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            <blockquote className="rounded-2xl border border-accent/40 bg-accent/10 p-4 text-lg text-accent">{copy.team.quote}</blockquote>
+          </div>
+          <div className="relative h-80 overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-soft">
+            {/* <Image src="/images/team.jpg" alt="Команда Brew Brava" fill className="object-cover" sizes="(min-width: 768px) 45vw, 100vw" /> */}
+            <ImageCarousel
+              images={[
+                { src: "/images/team_1.jpg", alt: "Brew Brava" },
+                { src: "/images/team_2.jpg", alt: "Brew Brava" },
+                { src: "/images/team_3.jpg", alt: "Brew Brava" },
+              ]}
+              slideClassName="h-[300px] md:h-[360px]"
+              sizes="(min-width: 1024px) 40vw, 100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+          </div>
+        </div>
+      </Section>
+
+      <Section id="cafe" title={copy.cafe.title} subtitle={copy.cafe.subtitle} tone="muted">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="space-y-4 text-gray-200">
+            <p>{copy.cafe.copy}</p>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {/* {copy.cafe.cards.map((item) => (
+                <div key={item.title} className="card-sheen rounded-2xl border border-white/10 bg-surface/80 p-4">
+                  <h4 className="font-display text-lg text-white">{item.title}</h4>
+                  <p className="text-sm text-gray-300">{item.copy}</p>
+                </div>
+              ))} */}
+            </div>
+          </div>
+          <div className="relative h-72 overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-soft">
+            {/* <Image src="/images/cafe.jpg" alt="Кафе при пивоварне" fill className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" /> */}
+            <ImageCarousel
+              images={[
+                { src: "/images/cafe_1.jpg", alt: "Brew Brava" },
+                { src: "/images/cafe_2.jpg", alt: "Brew Brava" },
+                { src: "/images/cafe_3.jpg", alt: "Brew Brava" },
+              ]}
+              slideClassName="h-72"
+              sizes="(min-width: 1024px) 40vw, 100vw"
+            />
+            {/* <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" /> */}
+          </div>
+        </div>
+      </Section>
+
+      <Section id="trust" title={copy.trust.title} subtitle={copy.trust.subtitle} tone="muted">
+        {/* ПОДПИСЬ НАД ДОКУМЕНТАМИ */}
+        <p className="mb-6 space-y-4 text-gray-200">
+          {copy.trust.text}
+        </p>
+
+        {/* 2 A4 ДОКУМЕНТА ПО ЦЕНТРУ */}
+        <div className="mx-auto grid w-full max-w-5xl gap-6 sm:grid-cols-2">
+          {/* Док 1 */}
+          <div className="relative mx-auto w-full max-w-[360px] overflow-hidden rounded-2xl border border-white/10 bg-surface shadow-soft aspect-[210/297]">
+            <Image
+              src="/images/trust_1.jpg"
+              alt="Документ Brew Brava"
+              fill
+              className="object-contain bg-white"
+              sizes="(min-width: 1024px) 30vw, 80vw"
+              priority
+            />
+          </div>
+
+          {/* Док 2 */}
+          <div className="relative mx-auto w-full max-w-[360px] overflow-hidden rounded-2xl border border-white/10 bg-surface shadow-soft aspect-[210/297]">
+            <Image
+              src="/images/trust_2.jpg"
+              alt="Документ Brew Brava"
+              fill
+              className="object-contain bg-white"
+              sizes="(min-width: 1024px) 30vw, 80vw"
+            />
+          </div>
+        </div>
+
       </Section>
 
       <Section id="locations" title={copy.locations.title} subtitle={copy.locations.subtitle}>
