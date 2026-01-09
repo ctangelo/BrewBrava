@@ -26,13 +26,16 @@ export function ImageCarousel({
 
   useEffect(() => {
     if (!emblaApi) return;
+
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
     onSelect();
     emblaApi.on("select", onSelect);
-    return () => emblaApi.off("select", onSelect);
+
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi]);
 
-  if (!images?.length) return null;
 
   return (
     <div className={`relative ${className}`}>
