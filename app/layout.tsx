@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" className="scroll-smooth">
-      <body className={`${gilroy.variable} font-sans bg-background text-white`}>
+      <body className={`${gilroy.variable} font-sans bg-background text-white text-[18px]`}>
         {children}
       </body>
     </html>

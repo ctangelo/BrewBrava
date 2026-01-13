@@ -252,7 +252,8 @@ const translations: Record<Language, PageCopy> = {
       links: [
         { href: "#about", label: "About" },
         { href: "#styles", label: "Lineup" },
-        { href: "#cafe", label: "Taproom" },
+        { href: "#team", label: "Team" },
+        { href: "#cafe", label: "Cafe" },
         { href: "#locations", label: "Where to find" },
         { href: "#b2b", label: "B2B" },
         { href: "#contacts", label: "Contacts" },
@@ -263,17 +264,17 @@ const translations: Record<Language, PageCopy> = {
     hero: {
       kicker: "Brew Brava",
       title: "Brew Brava — Craft beer, Nha Trang",
-      subtitle: "Craft beer with character. Brewed with soul by the sea.",
+      subtitle: "Craft beer with character",
       badges: ["Brewed in Nha Trang", "Natural ingredients", "Freshly tapped"],
       primaryCta: "See the beers",
       secondaryCta: "Where to drink",
     },
     about: {
-      title: "We brew honestly",
+      title: "Our Brewing Process & Ingredients",
       subtitle: "Process",
       body: [
-        "We brew honestly — carefully watching every detail and tightly controlling the process. Only natural ingredients: imported malt, aromatic hops, specialty yeast, and clean water.",
-        "We follow classic recipes and approach each batch with experience, precision, and respect for the craft.",
+        "We brew our beer honestly, with close attention to every detail of the brewing process. We use only natural ingredients: imported malt, aromatic hops, carefully selected brewing yeast, and clean water.",
+        "Each batch is brewed using classic recipes, guided by experience, precision, and craftsmanship.",
       ],
       tags: ["Quality control", "Fresh every batch", "Respect for styles"],
     },
@@ -283,18 +284,18 @@ const translations: Record<Language, PageCopy> = {
       body: "We brew the classics loved worldwide — Pilsner, IPA, Porter. And we experiment with local tropical ingredients like Mango Ale. Every beer is fresh, brewed in Nha Trang.",
     },
     team: {
-      title: "Team",
+      title: "Who We Are",
       subtitle: "People",
       body: [
-        "We are a team of sincere beer lovers who have worked in Nha Trang for years. Our brewers created recipes for Story, Pankoff, and Shultz restaurants, and in 2024 opened our own brewery Brew Brava.",
-        "Our goal is to make craft beer that both locals and guests love.",
+        "We are a group of passionate beer lovers who have been working in Nha Trang for many years. Our brewers previously developed beer recipes for restaurants such as Story, Pankoff, and Shultz. In 2024, we opened our own brewery, Brew Brava.",
+        "Our goal is to create high-quality craft beers enjoyed by both locals and visitors.",
       ],
       quote: '“Craft is honesty and the taste of the sea in every glass.”',
     },
     cafe: {
-      title: "Brewery taproom",
+      title: "Café & Brewery",
       subtitle: "Cafe",
-      copy: "In our cafe you can taste beer right at the brewery and see the equipment we use. Tank-to-tap serving means freshness you won’t find in supermarket bottles. Cozy atmosphere, fair prices, and real craft culture in Nha Trang.",
+      copy: "At our café, you can enjoy beer right at the brewery and see the brewing equipment firsthand. Our beer is served fresh directly from the fermentation tanks, offering a level of freshness and flavor completely different from bottled beer found in supermarkets. With a cozy atmosphere, affordable prices, and an authentic craft beer culture, we bring a true brewery experience to Nha Trang.",
       cards: [
         { title: "Tank-to-tap", copy: "Beer straight from the tanks — maximum freshness." },
         { title: "See the brewhouse", copy: "Equipment and process in open view." },
@@ -302,9 +303,9 @@ const translations: Record<Language, PageCopy> = {
       ],
     },
     trust: {
-      title: "Legal and certified",
+      title: "Licenses & Certifications",
       subtitle: "Trust",
-      text:"",
+      text:"All Brew Brava products are fully legal and certified. We hold all required licenses for beer production and business operations, as well as quality certifications for each product. We are committed to transparency and honesty with our customers and partners.",
       items: [
         { title: "Licenses", copy: "Licenses for brewing and selling beer." },
         { title: "Certificates", copy: "Quality certificates for every style." },
@@ -312,41 +313,41 @@ const translations: Record<Language, PageCopy> = {
       ],
     },
     styles: {
-      title: "Beers",
+      title: "Our Beers",
       subtitle: "Lineup",
       beers: [
         {
           title: "Pilsner — light and crisp (ABV ~4.8%)",
-          description: "Classic lager style: bright, smooth, perfect for a hot day.",
+          description: "A classic light lager with a clear appearance and a well-balanced flavor. Soft malt notes blend with a gentle, refreshing hop bitterness. Easy to drink, with a clean, dry finish.",
           abv: "~4.8%",
           tags: ["light", "lager", "refreshing"],
         },
         {
-          title: "IPA — bold and hoppy (ABV ~5.6%)",
-          description: "A beer packed with citrus and tropical hop aroma. A favorite choice for hop lovers.",
-          abv: "~5.6%",
+          title: "IPA — bold and hoppy (ABV ~6%)",
+          description: "A bold and aromatic beer with a distinctive hop character. Bright citrus and fruity notes are complemented by a pleasant bitterness. Well-rounded, full-flavored, and unforgettable—perfect for those who appreciate intense taste.",
+          abv: "~6%",
           tags: ["hoppy", "citrus", "aromatic"],
         },
         {
           title: "Porter — rich and smooth (ABV ~5.5%)",
-          description: "Dark beer with notes of chocolate and coffee, easy-drinking and cozy.",
+          description: "A dark beer with a rich color and a smooth, velvety body. Well-rounded and balanced, with gentle sweetness and a soft, lingering finish. A mellow yet full-flavored beer, ideal for relaxed sipping.",
           abv: "~5.5%",
           tags: ["dark", "chocolate", "smooth"],
         },
         {
           title: "Mango Ale — fruity and tropical (ABV ~5%)",
-          description: "Soft ale with mango. Bright fruit flavor and a gentle refreshing bitterness.",
+          description: "A rich and flavorful fruit beer infused with the vibrant aroma of ripe mango. Fresh and well-balanced, with light sweetness and gentle acidity. Refreshing, distinctive, and easy to drink, leaving a pleasant aftertaste.",
           abv: "~5%",
           tags: ["fruity", "mango", "tropical"],
         },
       ],
-      note: "Want to taste or get our price list? We’ll respond fast and tailor deliveries.",
+      note: "We brew classic beer styles loved all over the world—Pilsner, IPA, and Porter—while also experimenting with local tropical ingredients, such as our Mango Ale. All of our beers are fresh and brewed locally in Nha Trang.",
       cta: "Request price list (B2B)",
     },
     locations: {
       title: "Where to find our beer",
       subtitle: "Locations",
-      copy: "Our beer is served in bars, restaurants, and shops across Nha Trang. We’re expanding our partner network and ready to offer the best terms for new venues.",
+      copy: "Our beer is served at bars, restaurants, and retail outlets throughout Nha Trang. We are actively expanding our partner network and are ready to offer competitive terms to new business partners.",
       places: [
         "SEA WAVE Bar — Nha Trang promenade",
         "Lotus Terrace Restaurant — Tran Phu",
@@ -359,10 +360,10 @@ const translations: Record<Language, PageCopy> = {
       ctaCopy: "Tell us about your spot — we’ll suggest supply formats and equipment.",
     },
     b2b: {
-      title: "B2B — Brew Brava partners",
+      title: "B2B – For Our Partners",
       subtitle: "Collaboration",
       intro:
-        "Brew Brava is a reliable supplier of craft beer for shops, bars, and restaurants. We provide steady deliveries in bottles and kegs, professional draft equipment, and high-level service at every step.",
+        "We work with cafés, bars, restaurants, and retail stores. We supply beer in both kegs and bottles, install draft beer systems, and provide branded glassware when needed.",
       listTitle: "What we offer:",
       bullets: [
         "Beer in bottles and kegs — fresh batches and stable quality",
@@ -373,7 +374,7 @@ const translations: Record<Language, PageCopy> = {
         "Personal approach and responsive service",
       ],
       outro:
-        "By partnering with Brew Brava you get more than a beer supplier — you get a partner invested in your sales growth and long-term success.",
+        "Partnering with Brew Brava means fresh deliveries, fully licensed products, and reliable, professional support.",
     },
     form: {
       labels: {

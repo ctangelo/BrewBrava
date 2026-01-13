@@ -29,13 +29,13 @@ export function Header({ links, ctaLabel, language, languageLabel, onLanguageCha
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
         <Link
           href="#hero"
-          className="flex items-center gap-3 font-display text-xl tracking-wide uppercase text-gradient"
+          className="flex items-center gap-3 font-display text-xl font-bold tracking-wide uppercase text-white"
         >
           <Image
-            src="/logo.png"
+            src="/logo_2.png"
             alt="Brew Brava"
-            width={32}
-            height={32}
+            width={40}
+            height={40}
             priority
           />
           <span>Brew Brava</span>
