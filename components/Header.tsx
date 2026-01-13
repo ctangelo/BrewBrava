@@ -25,11 +25,11 @@ export function Header({ links, ctaLabel, language, languageLabel, onLanguageCha
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 backdrop-blur-lg bg-background/80 border-b border-white/10">
+    <header className="fixed inset-x-0 top-0 text-[15px] z-40 backdrop-blur-lg bg-background/80 border-b border-white/10">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
         <Link
           href="#hero"
-          className="flex items-center gap-3 font-display text-xl font-bold tracking-wide uppercase text-white"
+          className="flex items-center gap-3 font-display  font-bold tracking-wide uppercase text-white"
         >
           <Image
             src="/logo_2.png"
@@ -41,7 +41,7 @@ export function Header({ links, ctaLabel, language, languageLabel, onLanguageCha
           <span>Brew Brava</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-gray-200 md:flex">
+        <nav className="hidden items-center gap-8 font-medium text-gray-200 md:flex">
           {links.map((link) => (
             <a key={link.href} href={link.href} className="hover:text-white">
               {link.label}
