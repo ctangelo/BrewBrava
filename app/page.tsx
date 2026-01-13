@@ -96,7 +96,7 @@ const translations: Record<Language, PageCopy> = {
     hero: {
       kicker: "Brew Brava",
       title: "Brew Brava — Крафтовое пиво, Нячанг",
-      subtitle: "Крафтовое пиво, сваренное с душой, на берегу моря",
+      subtitle: "Крафтовое пиво с характером",
       badges: ["Сварено в Нячанге", "Натуральные ингредиенты", "Свежий розлив"],
       primaryCta: "Посмотреть сорта",
       secondaryCta: "Где попробовать",
