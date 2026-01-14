@@ -103,7 +103,7 @@ const translations: Record<Language, PageCopy> = {
       decline: "Мне нет 18",
     },
     hero: {
-      kicker: "Brew Brava",
+      kicker: "",
       title: "Brew Brava — Крафтовое пиво, Нячанг",
       subtitle: "Крафтовое пиво с характером",
       badges: ["Сварено в Нячанге", "Натуральные ингредиенты", "Свежий розлив"],
@@ -242,12 +242,14 @@ const translations: Record<Language, PageCopy> = {
     footer: {
       contactsLabel: "Контакты",
       contactsTitle: "Всегда на связи",
-      phone: "+84 (000) 000-00-00",
+      phone: "",
       email: "BrewBrava@mail.ru",
       address: "Нячанг, Вьетнам",
       social: [
-        { label: "Instagram", href: "https://instagram.com" },
-        { label: "Google Maps", href: "https://maps.google.com" },
+        { label: "Instagram", href: "https://www.instagram.com/brewbrava_brewery/" },
+        { label: "Google Maps", href: "https://www.google.com/maps/place/BREW+BRAVA+Brewery/@12.2811477,109.1912715,1004m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31706700196584d1:0x8883e42d8a075032!8m2!3d12.2811425!4d109.1938464!16s%2Fg%2F11wv0qqrct?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D"},
+        { label: "Telegram", href: "https://t.me/brewbravabrewery"},
+        { label: "Facebook", href: "https://www.facebook.com/share/1DJgwu7yC7/?mibextid=wwXIfr"},
       ],
       scrollLabel: "Наверх",
       scrollTitle: "Плавный скролл",
@@ -271,7 +273,7 @@ const translations: Record<Language, PageCopy> = {
       language: "Language",
     },
     hero: {
-      kicker: "Brew Brava",
+      kicker: "",
       title: "Brew Brava — Craft beer, Nha Trang",
       subtitle: "Craft beer with character",
       badges: ["Brewed in Nha Trang", "Natural ingredients", "Freshly tapped"],
@@ -413,8 +415,10 @@ const translations: Record<Language, PageCopy> = {
       email: "BrewBrava@mail.ru",
       address: "Nha Trang, Vietnam",
       social: [
-        { label: "Instagram", href: "https://instagram.com" },
-        { label: "Google Maps", href: "https://maps.google.com" },
+        { label: "Instagram", href: "https://www.instagram.com/brewbrava_brewery/" },
+        { label: "Google Maps", href: "https://www.google.com/maps/place/BREW+BRAVA+Brewery/@12.2811477,109.1912715,1004m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31706700196584d1:0x8883e42d8a075032!8m2!3d12.2811425!4d109.1938464!16s%2Fg%2F11wv0qqrct?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D"},
+        { label: "Telegram", href: "https://t.me/brewbravabrewery"},
+        { label: "Facebook", href: "https://www.facebook.com/share/1DJgwu7yC7/?mibextid=wwXIfr"},
       ],
       scrollLabel: "Back to top",
       scrollTitle: "Smooth scroll",
@@ -445,7 +449,7 @@ const translations: Record<Language, PageCopy> = {
       language: "Ngôn ngữ",
     },
     hero: {
-      kicker: "Brew Brava",
+      kicker: "",
       title: "Brew Brava — Bia thủ công, Nha Trang",
       subtitle: "Bia thủ công mang phong cách",
       badges: ["Nấu tại Nha Trang", "Nguyên liệu tự nhiên", "Rót tươi"],
@@ -587,8 +591,10 @@ const translations: Record<Language, PageCopy> = {
       email: "BrewBrava@mail.ru",
       address: "Nha Trang, Việt Nam",
       social: [
-        { label: "Instagram", href: "https://instagram.com" },
-        { label: "Google Maps", href: "https://maps.google.com" },
+        { label: "Instagram", href: "https://www.instagram.com/brewbrava_brewery/" },
+        { label: "Google Maps", href: "https://www.google.com/maps/place/BREW+BRAVA+Brewery/@12.2811477,109.1912715,1004m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31706700196584d1:0x8883e42d8a075032!8m2!3d12.2811425!4d109.1938464!16s%2Fg%2F11wv0qqrct?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D"},
+        { label: "Telegram", href: "https://t.me/brewbravabrewery"},
+        { label: "Facebook", href: "https://www.facebook.com/share/1DJgwu7yC7/?mibextid=wwXIfr"},
       ],
       scrollLabel: "Lên đầu trang",
       scrollTitle: "Cuộn mượt",
@@ -607,7 +613,7 @@ const translations: Record<Language, PageCopy> = {
 };
 
 export default function HomePage() {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>("vi");
   const copy = translations[language];
   console.log("LANG:", language, "HAS AGE:", copy?.age);
 
@@ -759,7 +765,7 @@ export default function HomePage() {
 
       </Section>
 
-      <Section id="locations" title={copy.locations.title} subtitle={copy.locations.subtitle}>
+      {/* <Section id="locations" title={copy.locations.title} subtitle={copy.locations.subtitle}>
         <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-start">
           <div className="space-y-3 text-gray-200">
             <p>{copy.locations.copy}</p>
@@ -784,7 +790,37 @@ export default function HomePage() {
             </a>
           </div>
         </div>
+      </Section> */}
+
+      <Section id="locations" title={copy.locations.title} subtitle={copy.locations.subtitle}>
+        <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-start">
+          {/* Левая часть — карта */}
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-soft">
+            <div className="relative h-[420px] w-full">
+              <iframe
+                title="Brew Brava locations"
+                src="https://www.google.com/maps/d/u/0/embed?mid=1R38RwanoNVHnksdCaY_8kqEWPTRbYtY&ehbc=2E312F"
+                className="absolute inset-0 h-full w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+
+          {/* Правая часть — CTA карточка (оставляем как у тебя) */}
+          <div className="rounded-2xl border border-accent/30 bg-accent/10 p-5 text-white shadow-soft">
+            <h4 className="font-display text-xl">{copy.locations.button}</h4>
+            <p className="text-sm text-gray-200">{copy.locations.ctaCopy}</p>
+            <a
+              href="#b2b"
+              className="mt-4 inline-flex w-full justify-center rounded-full border border-accent bg-accent px-4 py-3 text-black font-semibold shadow-soft transition hover:-translate-y-1"
+            >
+              {copy.locations.button}
+            </a>
+          </div>
+        </div>
       </Section>
+
 
       <Section id="b2b" title={copy.b2b.title} subtitle={copy.b2b.subtitle} tone="muted">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">

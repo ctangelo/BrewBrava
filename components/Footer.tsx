@@ -1,4 +1,4 @@
-import { ArrowUp, Instagram, MapPin, Phone, Mail } from "lucide-react";
+import { ArrowUp, Instagram, MapPin, Facebook, Mail, Send } from "lucide-react";
 
 export interface FooterCopy {
   contactsLabel: string;
@@ -18,6 +18,8 @@ export function Footer({ copy }: { copy: FooterCopy }) {
   const socialLinks = [
     { label: copy.social[0].label, href: copy.social[0].href, icon: Instagram },
     { label: copy.social[1].label, href: copy.social[1].href, icon: MapPin },
+    { label: copy.social[2].label, href: copy.social[2].href, icon: Send },
+    { label: copy.social[3].label, href: copy.social[3].href, icon: Facebook },
   ];
 
   return (
@@ -28,10 +30,10 @@ export function Footer({ copy }: { copy: FooterCopy }) {
             <p className="text-sm uppercase tracking-[0.25em] text-accent">{copy.contactsLabel}</p>
             <h3 className="font-display text-3xl text-white">{copy.contactsTitle}</h3>
             <div className="flex flex-col gap-3 text-gray-300">
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <Phone size={18} className="text-accent" />
                 <span>{copy.phone}</span>
-              </div>
+              </div> */}
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-accent" />
                 <span>{copy.email}</span>
