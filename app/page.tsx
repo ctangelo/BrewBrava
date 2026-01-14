@@ -234,7 +234,7 @@ const translations: Record<Language, PageCopy> = {
       contactsLabel: "Контакты",
       contactsTitle: "Всегда на связи",
       phone: "+84 (000) 000-00-00",
-      email: "hello@brewbrava.com",
+      email: "BrewBrava@mail.ru",
       address: "Нячанг, Вьетнам",
       social: [
         { label: "Instagram", href: "https://instagram.com" },
@@ -401,7 +401,7 @@ const translations: Record<Language, PageCopy> = {
       contactsLabel: "Contacts",
       contactsTitle: "Always in touch",
       phone: "+84 (000) 000-00-00",
-      email: "hello@brewbrava.com",
+      email: "BrewBrava@mail.ru",
       address: "Nha Trang, Vietnam",
       social: [
         { label: "Instagram", href: "https://instagram.com" },
@@ -419,6 +419,7 @@ const translations: Record<Language, PageCopy> = {
       links: [
         { href: "#about", label: "Về chúng tôi" },
         { href: "#styles", label: "Dòng bia" },
+        { href: "#team", label: "đội" },
         { href: "#cafe", label: "Taproom" },
         { href: "#locations", label: "Địa điểm" },
         { href: "#b2b", label: "B2B" },
@@ -430,38 +431,38 @@ const translations: Record<Language, PageCopy> = {
     hero: {
       kicker: "Brew Brava",
       title: "Brew Brava — Bia thủ công, Nha Trang",
-      subtitle: "Bia thủ công đậm cá tính. Nấu bằng cả tâm huyết bên bờ biển.",
+      subtitle: "Bia thủ công mang phong cách",
       badges: ["Nấu tại Nha Trang", "Nguyên liệu tự nhiên", "Rót tươi"],
       primaryCta: "Xem các dòng bia",
       secondaryCta: "Địa điểm thưởng thức",
     },
     about: {
-      title: "Chúng tôi nấu bia chân thật",
-      subtitle: "Quy trình",
+      title: "Quy trình sản xuất bia ",
+      subtitle: "Quy trình sản xuất bia ",
       body: [
-        "Chúng tôi nấu bia với sự chỉn chu từng chi tiết và kiểm soát chặt chẽ quy trình. Nguyên liệu hoàn toàn tự nhiên: malt nhập khẩu, hoa bia thơm, men bia chuyên dụng và nguồn nước sạch.",
-        "Dựa trên công thức cổ điển và thực hiện mỗi mẻ bằng kinh nghiệm, sự chính xác và tôn trọng nghề làm bia.",
+        "Chúng tôi sản xuất bia một cách trung thực, với sự chú trọng tỉ mỉ về quy trình công nghệ.",
+        "Chúng tôi chỉ sử dụng các nguyên liệu tự nhiên: mạch nha nhập khẩu, hoa bia thơm, men đặc biệt và nước tinh khiết. Chúng tôi sản xuất bia theo công thức cổ điển, mang đến bởi kinh nghiệm và sự chú ý cho từng mẻ bia.",
       ],
       tags: ["Kiểm soát chất lượng", "Tươi ở mỗi mẻ nấu", "Tôn trọng phong cách"],
     },
     craft: {
       title: "Cổ điển + thử nghiệm",
       subtitle: "Phong cách",
-      body: "Chúng tôi nấu những phong cách kinh điển được yêu thích khắp thế giới — Pilsner, IPA, Porter. Và thử nghiệm với nguyên liệu nhiệt đới địa phương như Mango Ale. Tất cả đều tươi, nấu tại Nha Trang.",
+      body: "Chúng tôi sản xuất những loại bia kinh điển được yêu thích trên toàn thế giới—Pilsner, IPA và Porter. Chúng tôi cũng thử nghiệm với các nguyên liệu nhiệt đới địa phương, như bia xoài. Tất cả các loại bia của chúng tôi đều tươi ngon, được ủ tại Nha Trang.",
     },
     team: {
-      title: "Đội ngũ",
-      subtitle: "Con người",
+      title: "Con người",
+      subtitle: "Chúng tôi là ai",
       body: [
-        "Chúng tôi là những người yêu bia thực thụ đã gắn bó với Nha Trang nhiều năm. Trước đây, các brewmaster của chúng tôi nấu và phát triển công thức cho Story, Pankoff và Shultz; từ 2024 mở riêng Brew Brava.",
-        "Mục tiêu của chúng tôi — làm bia thủ công được cả người địa phương lẫn du khách yêu thích.",
+        "Chúng tôi là một nhóm những người đam mê bia đã làm việc tại Nha Trang trong một thời gian dài. Các nhà sản xuất bia của chúng tôi trước đây đã từng ủ bia và tạo ra các công thức cho các nhà hàng như Story, Pankoff và Shultz, và vào năm 2024, chúng tôi đã mở nhà máy bia riêng của mình, Brew Brava.",
+        "Mục tiêu của chúng tôi là tạo ra những loại bia thủ công được cả người dân địa phương và du khách yêu thích.",
       ],
       quote: '“Bia thủ công là sự chân thật và vị biển trong mỗi ly.”',
     },
     cafe: {
-      title: "Quán cafe tại nhà nấu",
-      subtitle: "Taproom",
-      copy: "Tại quán, bạn có thể thử bia ngay tại nhà nấu và tận mắt xem thiết bị chúng tôi dùng. Rót thẳng từ tank lên ly — độ tươi mà chai siêu thị không có được. Không khí ấm cúng, giá hợp lý và văn hóa craft thật sự ở Nha Trang.",
+      title: "Quán cà phê",
+      subtitle: "Quán cà phê - nhà máy bia",
+      copy: "Tại quán cà phê của chúng tôi, bạn có thể thưởng thức bia ngay tại nhà máy và tận mắt chứng kiến các thiết bị chúng tôi sử dụng. Bia tươi trực tiếp từ các thùng lên men, độ tươi ngon và hương vị khác hẳn so với bia đóng chai ở siêu thị. Không gian ấm cúng, giá cả phải chăng và một nền văn hóa bia thủ công đích thực tại Nha Trang.",
       cards: [
         { title: "Rót từ tank", copy: "Bia trực tiếp từ tank – tươi tối đa." },
         { title: "Xem quy trình", copy: "Thiết bị và quy trình luôn mở để tham quan." },
@@ -469,9 +470,9 @@ const translations: Record<Language, PageCopy> = {
       ],
     },
     trust: {
-      title: "Hợp pháp và được chứng nhận",
-      subtitle: "Tin cậy",
-      text:"",
+      title: "Niềm tin",
+      subtitle: "Giấy phép và Chứng nhận ",
+      text:"Tất cả sản phẩm của Brew Brava đều hợp pháp và được chứng nhận. Chúng tôi có giấy phép sản xuất và kinh doanh bia, cũng như chứng nhận chất lượng cho từng loại. Chúng tôi luôn minh bạch và trung thực với khách hàng và đối tác.",
       items: [
         { title: "Giấy phép", copy: "Đầy đủ giấy phép sản xuất và bán bia." },
         { title: "Chứng nhận", copy: "Chứng nhận chất lượng cho từng dòng bia." },
@@ -480,40 +481,40 @@ const translations: Record<Language, PageCopy> = {
     },
     styles: {
       title: "Các dòng bia",
-      subtitle: "Lineup",
+      subtitle: "Các loại bia của chúng tôi",
       beers: [
         {
           title: "Pilsner — nhẹ và sảng khoái (ABV ~4.8%)",
-          description: "Phong cách lager kinh điển: sáng, mượt, hoàn hảo cho ngày nóng.",
+          description: "Một loại bia lager nhẹ cổ điển với màu sắc trong suốt và hương vị cân bằng. Vị mạch nha mềm mại được bổ sung bởi vị đắng nhẹ, sảng khoái của hoa bia. Bia dễ uống và để lại hậu vị khô ráo, sạch sẽ",
           abv: "~4.8%",
           tags: ["nhẹ", "lager", "mát lạnh"],
         },
         {
-          title: "IPA — đậm và nhiều hoa bia (ABV ~5.6%)",
-          description: "Bia tràn ngập hương cam chanh và trái cây nhiệt đới. Lựa chọn yêu thích của tín đồ hop.",
-          abv: "~5.6%",
+          title: "IPA — đậm và nhiều hoa bia (ABV ~6%)",
+          description: "Một loại bia thơm nồng, đậm đà với hương vị hoa bia đặc trưng. Hương vị mang đậm vị cam quýt và trái cây, được bổ sung bởi vị đắng dễ chịu. Tròn vị, đậm đà và khó quên, loại bia này hoàn hảo cho những người đánh giá cao hương vị mạnh mẽ.",
+          abv: "~6%",
           tags: ["nhiều hop", "cam chanh", "thơm"],
         },
         {
           title: "Porter — đậm đà và êm (ABV ~5.5%)",
-          description: "Bia đen với nốt chocolate và cà phê, dễ uống và ấm áp.",
+          description: "Một loại bia đen có màu sắc đậm đà và kết cấu mềm mại. Hương vị tròn trịa và cân bằng, với vị ngọt nhẹ và hậu vị mượt mà. Một loại bia êm dịu và đậm đà, hoàn hảo để nhâm nhi thư thái",
           abv: "~5.5%",
           tags: ["bia đen", "chocolate", "êm"],
         },
         {
           title: "Mango Ale — trái cây và nhiệt đới (ABV ~5%)",
-          description: "Ale nhẹ với xoài. Vị trái cây nổi bật và hậu vị đắng mát.",
+          description: "Một loại bia trái cây thơm ngon, đậm đà với hương thơm sống động của xoài chín. Hương vị tươi mát và hài hòa, với vị ngọt nhẹ và độ chua dịu. Một loại bia sảng khoái và độc đáo, dễ uống và để lại dư vị dễ chịu.",
           abv: "~5%",
           tags: ["trái cây", "xoài", "nhiệt đới"],
         },
       ],
-      note: "Muốn thử hoặc nhận bảng giá? Chúng tôi phản hồi nhanh và gợi ý cách giao phù hợp.",
+      note: "Chúng tôi sản xuất những loại bia kinh điển được yêu thích trên toàn thế giới—Pilsner, IPA và Porter. Chúng tôi cũng thử nghiệm với các nguyên liệu nhiệt đới địa phương, như bia xoài. Tất cả các loại bia của chúng tôi đều tươi ngon, được ủ tại Nha Trang.",
       cta: "Yêu cầu bảng giá (B2B)",
     },
     locations: {
       title: "Có thể tìm bia ở đâu",
-      subtitle: "Địa điểm",
-      copy: "Bia của chúng tôi có tại các quán bar, nhà hàng và cửa hàng ở Nha Trang. Chúng tôi đang mở rộng mạng lưới đối tác và sẵn sàng ưu đãi cho địa điểm mới.",
+      subtitle: "Nơi bán bia của chúng tôi",
+      copy: "Bia của chúng tôi được phục vụ tại các quán bar, nhà hàng và cửa hàng ở Nha Trang. Chúng tôi đang mở rộng mạng lưới đối tác và sẵn sàng cung cấp những điều kiện tốt nhất cho các cơ sở kinh doanh mới.",
       places: [
         "SEA WAVE Bar — dọc bờ biển Nha Trang",
         "Lotus Terrace Restaurant — Trần Phú",
@@ -529,7 +530,7 @@ const translations: Record<Language, PageCopy> = {
       title: "B2B — Đối tác Brew Brava",
       subtitle: "Hợp tác",
       intro:
-        "Brew Brava là nhà cung cấp bia thủ công đáng tin cậy cho cửa hàng, quán bar và nhà hàng. Chúng tôi cung cấp bia chai và keg ổn định, thiết bị rót chuyên nghiệp và dịch vụ tận tâm ở mọi bước.",
+        "Chúng tôi hợp tác với các quán cà phê, quán bar, nhà hàng và cửa hàng. Chúng tôi cung cấp bia trong thùng và chai. Chúng tôi lắp đặt thiết bị rót bia và cung cấp cốc có thương hiệu nếu cần. Hợp tác với Brew Brava có nghĩa là được giao hàng tươi ngon, sản phẩm có giấy phép và hỗ trợ đối tác.",
       listTitle: "Chúng tôi cung cấp:",
       bullets: [
         "Bia chai và keg — mẻ tươi, chất lượng ổn định",
@@ -567,7 +568,7 @@ const translations: Record<Language, PageCopy> = {
       contactsLabel: "Liên hệ",
       contactsTitle: "Luôn sẵn sàng",
       phone: "+84 (000) 000-00-00",
-      email: "hello@brewbrava.com",
+      email: "BrewBrava@mail.ru",
       address: "Nha Trang, Việt Nam",
       social: [
         { label: "Instagram", href: "https://instagram.com" },
