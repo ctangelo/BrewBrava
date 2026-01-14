@@ -607,7 +607,7 @@ const translations: Record<Language, PageCopy> = {
 };
 
 export default function HomePage() {
-  const [language, setLanguage] = useState<Language>("ru");
+  const [language, setLanguage] = useState<Language>("en");
   const copy = translations[language];
   console.log("LANG:", language, "HAS AGE:", copy?.age);
 
