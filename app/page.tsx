@@ -11,6 +11,8 @@ import { ContactForm, ContactFormCopy } from "@/components/ContactForm";
 import { Footer, FooterCopy } from "@/components/Footer";
 import { Language } from "@/lib/i18n";
 import { ImageCarousel } from "@/components/ImageCarousel";
+import { AgeGate } from "@/components/AgeGate";
+
 
 
 interface PageCopy {
@@ -19,6 +21,7 @@ interface PageCopy {
     cta: string;
     language: string;
   };
+  age: { title: string; text: string; confirm: string; decline: string };
   hero: HeroContent;
   about: {
     title: string;
@@ -92,6 +95,12 @@ const translations: Record<Language, PageCopy> = {
       ],
       cta: "Стать партнёром",
       language: "Язык",
+    },
+    age: {
+      title: "18+",
+      text: "Сайт содержит информацию об алкогольной продукции. Для доступа подтвердите, что вам исполнилось 18 лет.",
+      confirm: "Мне есть 18",
+      decline: "Мне нет 18",
     },
     hero: {
       kicker: "Brew Brava",
@@ -413,6 +422,13 @@ const translations: Record<Language, PageCopy> = {
       scrollCta: "To top",
       footerNote: "Craft beer with respect for the craft.",
     },
+    age: {
+      title: "18+",
+      text: "This website contains information about alcoholic beverages. Please confirm that you are 18 years old or older.",
+      confirm: "I am 18+",
+      decline: "I am under 18",
+    },
+
   },
   vi: {
     header: {
@@ -580,15 +596,25 @@ const translations: Record<Language, PageCopy> = {
       scrollCta: "Lên trên",
       footerNote: "Bia thủ công với sự tôn trọng nghề làm bia.",
     },
+    age: {
+      title: "18+",
+      text: "Trang web này chứa thông tin về đồ uống có cồn. Vui lòng xác nhận bạn đã đủ 18 tuổi.",
+      confirm: "Tôi đủ 18 tuổi",
+      decline: "Tôi chưa đủ 18 tuổi",
+    },
+
   },
 };
 
 export default function HomePage() {
   const [language, setLanguage] = useState<Language>("ru");
   const copy = translations[language];
+  console.log("LANG:", language, "HAS AGE:", copy?.age);
+
 
   return (
     <main className="relative min-h-screen bg-background text-white">
+      <AgeGate copy={copy.age} />
       <Header
         links={copy.header.links}
         ctaLabel={copy.header.cta}

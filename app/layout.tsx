@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Oswald } from "next/font/google";
+import { AgeGate } from "@/components/AgeGate";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -55,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru" className="scroll-smooth">
       <body className={`${gilroy.variable} font-sans bg-background text-white text-[18px]`}>
+       <AgeGate />
         {children}
       </body>
     </html>
