@@ -1,4 +1,4 @@
-import { ArrowUp, Instagram, MapPin, Facebook, Mail, Send } from "lucide-react";
+import { ArrowUp, Instagram, MapPin, Facebook, Mail, Send, MessageCircle } from "lucide-react";
 
 export interface FooterCopy {
   contactsLabel: string;
@@ -20,6 +20,7 @@ export function Footer({ copy }: { copy: FooterCopy }) {
     { label: copy.social[1].label, href: copy.social[1].href, icon: MapPin },
     { label: copy.social[2].label, href: copy.social[2].href, icon: Send },
     { label: copy.social[3].label, href: copy.social[3].href, icon: Facebook },
+    { label: copy.social[4].label, href: copy.social[4].href, icon: MessageCircle },
   ];
 
   return (
