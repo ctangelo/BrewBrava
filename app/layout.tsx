@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AgeGate } from "@/components/AgeGate";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 // const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${gilroy.variable} font-sans bg-background text-white text-[18px]`}>
        <AgeGate />
         {children}
+        <Analytics />
       </body>
     </html>
   );
