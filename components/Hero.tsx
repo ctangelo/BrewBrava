@@ -12,10 +12,19 @@ export interface HeroContent {
 export function Hero({ content }: { content: HeroContent }) {
   return (
     <section id="hero" className="relative isolate overflow-hidden text-white">
+      
       {/* VIDEO BACKGROUND */}
-      <div className="relative w-full aspect-video max-h-[70vh] min-h-[420px] overflow-hidden">
+      {/* <div className="relative w-full overflow-hidden h-[58vh] sm:h-[60vh] md:aspect-video md:h-auto md:max-h-[70vh] md:min-h-[420px]"> */}
+      <div className="
+          relative w-full overflow-hidden
+          h-[95vh]
+          sm:h-[65vh]
+          md:aspect-video md:h-auto md:max-h-[70vh] md:min-h-[420px]
+        ">
+        
         <video
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-cover object-[60%_35%] scale-[1.08] md:scale-100 md:object-center"
+
           autoPlay
           muted
           loop
@@ -32,7 +41,7 @@ export function Hero({ content }: { content: HeroContent }) {
 
         {/* ✅ ВОТ ТУТ ТЕКСТ ПОВЕРХ ВИДЕО */}
         <div className="absolute inset-0 z-10">
-          <div className="mx-auto flex h-full max-w-6xl flex-col justify-end gap-10 px-4 pb-16 pt-28 md:px-6">
+          <div className="mx-auto flex h-full max-w-6xl flex-col justify-end gap-6 px-4 pb-8 pt-24 sm:pb-10 md:gap-10 md:px-6 md:pb-16 md:pt-28">
             <div className="flex max-w-3xl flex-col gap-6">
               <p className="font-display text-sm uppercase tracking-[0.3em] text-accent">{content.kicker}</p>
               <h1 className="font-display text-4xl leading-tight sm:text-5xl md:text-6xl">{content.title}</h1>
